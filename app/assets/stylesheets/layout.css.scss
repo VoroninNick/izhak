@@ -1,0 +1,183 @@
+@import "config";
+@import "grid";
+
+header{
+  width: 100%;
+  background: rgba($brand-orange, 1);
+  height: 90px;
+  .core-header{
+    @include set_container;
+    .header-menu-row{
+      @include set_row;
+
+      .logo-element{
+        @include set_grid;
+        @include set_grid_2;
+        svg{
+          margin-top: -20px;
+          max-width: 150px;
+        }
+      }
+
+      .work-time{
+        @include set_grid;
+        @include set_grid_3;
+
+        font-family: "Lobster", cursive;
+        color: #ffffff;
+
+        p{
+          font-size: 42px;
+          margin: 0;
+          span{
+            font-size: 20px;
+            position: relative;
+            top: -16px;
+          }
+        }
+
+        i{
+          font-family: "Fira Sans", sans-serif;
+          font-weight: 600;
+          font-size: 18px;
+        }
+
+      }
+
+      .call-back{
+        @include set_grid;
+        @include set_grid_5;
+        p{
+          font-family: "Lobster", cursive;
+          color: #ffffff;
+          font-size: 42px;
+          margin: 0;
+        }
+        a{
+          font-family: "Fira Sans", sans-serif;
+          font-weight: 400;
+          color: #ffffff;
+
+          font-size: 14px;
+
+          border-bottom: 1px dotted #ffffff;
+        }
+      }
+
+      .core-cart{
+        @include set_grid;
+        @include set_grid_2;
+        .personal-cabinet{
+          display: block;
+          float: left;
+          width: 26px;
+          height: 26px;
+
+          background-image: url("user-icon.svg");
+          background-position: 0 0;
+          background-size: 26px;
+
+          margin-top: 28px;
+        }
+
+        #cc-element{
+          display: block;
+          position: relative;
+          cursor: pointer;
+          box-shadow: 2px 4px 1px 0px rgba(0, 0, 0, 0.34);
+          float: left;
+          width: 100px;
+          height: 80px;
+          margin-left: 20px;
+          border-radius: 6px;
+          top: -12px;
+          background: #ffffff;
+
+          svg{
+            width: 56px;
+            position: absolute;
+            top: 18px;
+            left: 22px;
+          }
+        }
+
+        #core-cart-element{
+          position: absolute;
+          background: #ffffff;
+          color: $brand-orange;
+        }
+      }
+    }
+  }
+}
+
+
+#index-banner{
+  height: 580px;
+  background: url("pattern-white-15.png") $brand-darkblue repeat 0 0;
+}
+
+#index-restorans{
+  background: $brand-orange;
+  height: 175px;
+  .restorans-container{
+    @include set_container;
+    max-width: 900px;
+    .restorans-row{
+      @include set_row;
+      .restorans-grid{
+        transition: opacity ease-in 0.8s;
+        @include set_grid;
+        @include set_grid_4;
+        position: relative;
+        top: -205px;
+        &:first-child{
+
+        }
+        &:last-child{
+
+        }
+        .restorans-item{
+
+          background-color: #ffffff;
+          border-radius: 50%;
+          //max-width: 270px;
+        }
+
+        h2{
+          font-family: "Lobster", cursive;
+          color: #ffffff;
+          font-size: 32px;
+          margin: 0;
+          text-align: center;
+        }
+        p{
+          font-family: "Fira Sans", sans-serif;
+          font-weight: 400;
+          color: #ffffff;
+          margin: 0;
+          font-size: 14px;
+          text-align: center;
+        }
+
+      }
+
+      .bruno{
+        //background-image: url("bruno-logo.svg");
+
+      }
+      .baba-frana{
+        //background-image: url("baba-frana.svg");
+      }
+      .barbaris{
+        //background-image: url("barbaris.svg");
+      }
+    }
+  }
+
+}
+
+
+#index-recommended-week{
+
+}

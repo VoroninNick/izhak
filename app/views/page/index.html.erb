@@ -1,0 +1,63 @@
+<header>
+  <section class="core-header">
+    <section class="header-menu-row">
+      <div class="logo-element">
+        <%= link_to_unless current_page?(controller: 'page', action: 'index') || current_page?('/'), embedded_svg('logo.svg'), root_path %>
+      </div>
+      <div class="work-time">
+        <p>12<span>:00</span> &mdash; 22<span>:00</span></p>
+        <i>Клуб доставки Їжі</i>
+      </div>
+      <div class="call-back">
+        <p>+38 (097) 097-05-05</p>
+        <a href="#call-me">замовити дзвінок</a>
+      </div>
+      <div class="core-cart">
+        <a class="personal-cabinet" href=""></a>
+        <div id="cc-element">
+          <%= embedded_svg("cart.svg") %>
+        </div>
+      </div>
+    </section>
+  </section>
+</header>
+
+<section id="index-banner">
+</section>
+<section id="index-restorans">
+  <div class="restorans-container">
+    <div class="restorans-row">
+      <div class="restorans-grid">
+        <div class="restorans-item bruno">
+          <%= embedded_svg("bruno-logo.svg") %>
+        </div>
+        <h2>Італійська кухня</h2>
+        <p>Піца, паста, свіжі салати, напої</p>
+      </div>
+
+      <div class="restorans-grid">
+        <div class="restorans-item baba-frana">
+          <%= embedded_svg("baba-frana.svg") %>
+        </div>
+        <h2>Європейська кухня</h2>
+        <p>Страви з мяса, борщ, зупа, вареники, узвари, солодке</p>
+      </div>
+
+      <div class="restorans-grid">
+        <div class="restorans-item barbaris">
+          <%= embedded_svg("barbaris.svg") %>
+        </div>
+        <h2>Японська кухня</h2>
+        <p>Суші, супи, та інші японські страви</p>
+      </div>
+
+
+    </div>
+  </div>
+</section>
+
+<section id="index-recommended-week">
+  <h1>Пропизиція тижня</h1>
+</section>
+
+
