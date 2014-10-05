@@ -1,6 +1,15 @@
 $brand-orange: #FF661B;
 $brand-darkblue: #212844;
+$brand-green: #00948F;
 
+$padding-brand-top: 80px;
+$padding-brand-bottom: 280px;
+
+
+@mixin fira(){
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 400;
+}
 
 
 html{
@@ -10,9 +19,34 @@ html{
 
     -webkit-font-smoothing: antialiased;
 
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 400;
+
   }
 }
 
 
-
+/*
+ Sticky footer
+ */
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+#magic-wrapper {
+  min-height: 100%;
+  margin-bottom: -440px;
+}
+#magic-wrapper:after {
+  content: "";
+  display: block;
+}
+footer, #magic-wrapper:after {
+  height: 440px;
+}
+footer {
+  background: url("pattern-white-15.png") $brand-darkblue repeat 0 0;
+}
 

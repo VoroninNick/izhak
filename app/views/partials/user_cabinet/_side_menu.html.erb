@@ -1,0 +1,5 @@
+<ul>
+  <li <%- if controller_name == "user_cabinet" && action_name == "index" %> class="current" <% end -%>><%= link_to "Мій профіль", user_cabinet_index_path %></li>
+  <li <%- if controller_name == "user_cabinet" && action_name == "history" %> class="current" <% end -%>><%= link_to "Історія покупок", user_cabinet_history_path %></li>
+  <li <%- if controller_name == "user_cabinet" && action_name == "subscribe" %> class="current" <% end -%>><%= link_to "Підписка на розсилку", user_cabinet_subscribe_path %></li>
+</ul>

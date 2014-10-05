@@ -1,59 +1,49 @@
 Rails.application.routes.draw do
-  get 'page/index'
-  root 'page#index'
 
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  # Section for user dashboard
+  # ------------- SECTION START -------------
+  devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }, skip: [:sessions, :passwords, :confirmations, :registrations]
+  get '/my', to: redirect('/my/dashboard'), as: 'my_index'
+  get '/my/dashboard', to: 'user_cabinet#index', as: 'user_cabinet_index'
+  get '/my/dashboard/history', to: 'user_cabinet#history', as: 'user_cabinet_history'
+  get '/my/dashboard/subscribe', to: 'user_cabinet#subscribe', as: 'user_cabinet_subscribe'
+  devise_scope :user do
+    # session handling
+    get     '/my/dashboard/login'  => 'devise/sessions#new',     as: 'new_user_session'
+    post    '/my/dashboard/login'  => 'devise/sessions#create',  as: 'user_session'
+    delete  '/my/dashboard/logout' => 'devise/sessions#destroy', as: 'destroy_user_session'
 
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+    # joining
+    get   '/my/dashboard/join' => 'devise/registrations#new',    as: 'new_user_registration'
+    post  '/my/dashboard/join' => 'devise/registrations#create', as: 'user_registration'
+    put   '/my/dashboard/join' => 'devise/registrations#update'
+    delete '/my/dashboard/join' => 'devise/registrations#destroy'
 
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+    scope '/my/dashboard/account' do
+      # password reset
+      get   '/reset-password'        => 'devise/passwords#new',    as: 'new_user_password'
+      put   '/reset-password'        => 'devise/passwords#update', as: 'user_password'
+      post  '/reset-password'        => 'devise/passwords#create'
+      get   '/reset-password/change' => 'devise/passwords#edit',   as: 'edit_user_password'
 
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
+      # confirmation
+      get   '/confirm'        => 'devise/confirmations#show',   as: 'user_confirmation'
+      post  '/confirm'        => 'devise/confirmations#create'
+      get   '/confirm/resend' => 'devise/confirmations#new',    as: 'new_user_confirmation'
 
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
+      # settings & cancellation
+      get '/cancel'   => 'devise/registrations#cancel', as: 'cancel_user_registration'
+      get '/settings' => 'devise/registrations#edit',   as: 'edit_user_registration'
+      put '/settings' => 'devise/registrations#update'
 
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
+      # account deletion
+      delete '' => 'devise/registrations#destroy'#, as: 'delete_user_registration'
+    end
 
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
+  end  # ------------- SECTION END -------------
 
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+    root 'page#index'
+
 end

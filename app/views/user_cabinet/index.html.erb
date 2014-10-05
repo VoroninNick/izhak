@@ -1,0 +1,49 @@
+<%#= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
+<%#= current_user.add_points(20) %>
+
+<section id="dashboard">
+  <div id="dashboard-container">
+    <div id="dashboard-row">
+
+      <div class="dashboard-navigation">
+        <%= render partial: 'partials/user_cabinet/side_menu' %>
+      </div>
+
+      <section id="dashboard-user-profile">
+        <article class="intro">
+          <h1>Вітаємо, <%= current_user.first_name %> <%= current_user.last_name %>!</h1>
+          <p>Ви знаходитесь в особистому кабінеті. Тут ви маєте змогу редагувати особисті дані, переглядати історію покупок, та підписатись (відписатись) на розсилку</p>
+          <%= link_to 'Вийти', destroy_user_session_path, :method => :delete %>
+        </article>
+        <article class="contact-details">
+          <ul>
+            <li>Контактна інформація</li>
+            <li><%= link_to(embedded_svg("user-edit-pen.svg"), edit_user_registration_path)%></li>
+          </ul>
+          <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
+          <h2><%= current_user.email %></h2>
+          <%= link_to 'Змінити пароль', edit_user_registration_path, class: 'change-pass' %>
+        </article>
+        <article class="points-details">
+          <ul>
+            <li>Бонусні бали</li>
+          </ul>
+          <p>Бали нараховуються після кожної покупки, і можуть витрачатись при наступних покупках. <a href="">Детальніше про систему балів</a></p>
+          <h2>Балів на вашому рахунку:</h2>
+          <div class="bonus-detail">
+            <div class="point">
+              <%= embedded_svg("point.svg") %>
+            </div>
+            <div class="multiplier">
+              x
+            </div>
+            <div class="points">
+              <%= current_user.points %>
+            </div>
+          </div>
+        </article>
+      </section>
+
+    </div>
+  </div>
+</section>

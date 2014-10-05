@@ -1,0 +1,364 @@
+@import "grid";
+@import "config";
+
+#dashboard{
+
+  // Temp
+  padding-top: $padding-brand-top;
+  padding-bottom: $padding-brand-bottom;
+
+  background: url("pattern-white-15.png") rgba(115, 60, 36, 1) repeat 0 0;
+
+  #dashboard-container{
+    @include set_container;
+    #dashboard-row{
+      @include set_row;
+
+      .dashboard-navigation{
+        @include set_grid;
+        @include set_grid_3;
+        ul{
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          .current{
+            background-color: $brand-orange;
+            a{
+              color: #ffffff;
+            }
+          }
+          li{
+            padding: 16px 12px;
+            background: url("pattern-white-15.png") repeat 0 0;
+            background-color: #ffffff;
+            border-bottom: 1px solid $brand-orange;
+            &:first-child{
+
+            }
+
+            &:last-child{
+              border-bottom: 0;
+            }
+
+            a{
+              font-size: 22px;
+              color: $brand-orange;
+              font-family: "Lobster", cursive;
+            }
+          }
+        }
+      }
+
+      #dashboard-user-profile{
+        @include set_grid;
+        @include set_grid_9;
+
+        background: #ffffff;
+
+        padding: 40px;
+
+        .intro{
+          padding-bottom: 20px;
+          border-bottom: 1px solid rgba(188, 190, 192, 1);
+          h1{
+            font-family: "Lobster", cursive;
+            color: $brand-darkblue;
+            margin-bottom: 0;
+            margin-top: 0;
+            font-size: 38px;
+          }
+          p{
+            font-family: "Fira Sans", sans-serif;
+            font-weight: 400;
+            color: #6D6E71;
+          }
+          a{
+            color: #00948F;
+            text-decoration: none;
+            border-bottom: 1px dotted rgba(#00948F, 0.5);
+            display: inline-block;
+
+            font-family: "Fira Sans", sans-serif;
+            font-weight: 400;
+
+            &:hover{
+              border-bottom: 1px dotted rgba(#00948F, 1);
+            }
+          }
+        }
+
+        .contact-details{
+          padding-bottom: 20px;
+          border-bottom: 1px solid rgba(188, 190, 192, 1);
+
+          ul{
+            list-style: none;
+            margin:0;
+            padding: 25px 0 45px 0;
+            li{
+              float: left;
+              margin-right: 15px;
+              color: #BCBEC0;
+              font-size: 14px;
+
+              &:first-child{
+                border-right: 1px solid #BCBEC0;
+                padding-right: 15px;
+              }
+
+              a{
+                width: 16px;
+                height: 16px;
+                display: block;
+              }
+            }
+          }
+
+          h2{
+            font-family: "Lobster", cursive;
+            color: $brand-darkblue;
+            margin: 0;
+            font-size: 38px;
+          }
+
+          .change-pass{
+            color: #00948F;
+            text-decoration: none;
+            border-bottom: 1px dotted rgba(#00948F, 0.5);
+            padding-top: 20px;
+            margin-bottom: 15px;
+            display: inline-block;
+
+            font-family: "Fira Sans", sans-serif;
+            font-weight: 400;
+
+            &:hover{
+              border-bottom: 1px dotted rgba(#00948F, 1);
+            }
+          }
+
+
+        }
+
+        .points-details{
+          padding-bottom: 20px;
+
+          ul{
+            list-style: none;
+            margin:0;
+            padding: 25px 0 25px 0;
+            li{
+              float: left;
+              margin-right: 15px;
+              color: #BCBEC0;
+              font-size: 14px;
+            }
+          }
+
+          h2{
+            font-family: "Lobster", cursive;
+            color: $brand-orange;
+            margin: 0;
+            font-size: 38px;
+          }
+
+          p{
+            font-family: "Fira Sans", sans-serif;
+            font-weight: 400;
+            color: #6D6E71;
+            a{
+              color: #00948F;
+              text-decoration: none;
+              border-bottom: 1px dotted rgba(#00948F, 0.5);
+
+
+              &:hover{
+                border-bottom: 1px dotted rgba(#00948F, 1);
+              }
+            }
+          }
+
+          .bonus-detail{
+            float: left;
+            width: 100%;
+            margin-top: 15px;
+            .point{
+              width: 128px;
+              height: 128px;
+              float: left;
+              margin-right: 20px;
+            }
+            .multiplier{
+              font-family: "Lobster", cursive;
+              float: left;
+              font-size: 36px;
+              line-height: 128px;
+              margin-right: 20px;
+              color: $brand-orange;
+            }
+            .points{
+              font-family: "Lobster", cursive;
+              float: left;
+              font-size: 46px;
+              line-height: 128px;
+              color: $brand-darkblue;
+            }
+          }
+
+
+
+        }
+
+
+
+      }
+    }
+  }
+
+
+
+
+
+}
+
+/* Login page
+*/
+.dashboard-login-wrapper{
+  width: 100%;
+  height: 100%;
+  background: url("pattern-white-15.png") rgba(115, 60, 36, 1) repeat 0 0;
+
+  padding-top: $padding-brand-top;
+  padding-bottom: $padding-brand-bottom;
+
+  #dashboard-login{
+    @include set_container;
+    max-width: 560px;
+    background: #ffffff;
+    .dashboard-row{
+      @include set_row;
+
+      .header-login{
+        @include set_grid;
+        @include set_grid_12;
+        width: 100%;
+        margin: 0;
+        padding: 10px 10px;
+        background: url("pattern-white-15.png") $brand-darkblue repeat 0 0;
+        h2{
+          margin: 0;
+          font-size: 32px;
+          text-align: center;
+          color: #ffffff;
+          font-family: "Lobster", cursive;
+        }
+      }
+      .body-login{
+        @include set_grid;
+        @include set_grid_12;
+        width: 100%;
+        margin: 0;
+        padding: 40px 30px;
+        form{
+          display: block;
+          .form-inputs{
+            .input{
+              width: 100%;
+              margin-bottom: 20px;
+              label{
+                @include fira;
+                color: $brand-orange;
+                font-size: 14px;
+                margin-left: 8px;
+              }
+              input{
+                color: $brand-darkblue;
+                @include fira;
+                font-style: italic;
+                width: inherit;
+                padding: 8px 12px;
+                border: 1px solid rgba(#bdbec0, 1);
+
+                ::-webkit-input-placeholder { /* WebKit browsers */
+                  color: #bdbec0;
+                }
+                :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                  color: #bdbec0;
+                  opacity:  1;
+                }
+                ::-moz-placeholder { /* Mozilla Firefox 19+ */
+                  color: #bdbec0;
+                  opacity:  1;
+                }
+                :-ms-input-placeholder { /* Internet Explorer 10+ */
+                  color: #bdbec0;
+                }
+              }
+            }
+          }
+        }
+      }
+      .links-login{
+        margin: 10px 0;
+        .facebook{
+          float: left;
+          width: 45%;
+          margin-right: 2.5%;
+          a{
+            color: #bdbec0;
+            font-size: 14px;
+
+            svg{
+              width: 24px;
+              height: 24px;
+              display: inline;
+            }
+          }
+        }
+        .password-forget,
+        .new-user{
+          float: left;
+          width: 25%;
+          a{
+            color: $brand-green;
+            border-bottom: 1px dotted rgba($brand-green, 0.5);
+            text-decoration: none;
+            font-size: 14px;
+            &:hover{
+              border-bottom: 1px dotted rgba($brand-green, 1);
+            }
+          }
+        }
+      }
+      .footer-login{
+        @include set_grid;
+        @include set_grid_12;
+        width: 100%;
+        margin: 0;
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        background: $brand-orange;
+        a{
+          @include fira;
+          font-weight: 600;
+          text-transform: uppercase;
+          color: #ffffff;
+          font-size: 30px;
+          display: block;
+          width: inherit;
+          &:hover{
+            color: #ffffff;
+          }
+          &:active{
+            color: #ffffff;
+          }
+        }
+      }
+
+
+    }
+  }
+}
+
+

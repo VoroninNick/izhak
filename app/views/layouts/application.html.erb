@@ -9,11 +9,110 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '539826682828532',
+        xfbml      : true,
+        version    : 'v2.1'
+      });
+    };
 
+    (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
 </head>
-<body unresolved>
+<body unresolved id="header">
+
+<section id="magic-wrapper">
+  <header>
+    <section class="core-header">
+      <section class="header-menu-row">
+        <div class="logo-element">
+          <% if controller_name == 'page' && action_name == 'index' %>
+            <%= embedded_svg("logo.svg") %>
+          <% else %>
+            <%= link_to(embedded_svg("logo.svg"), root_path)%>
+          <% end %>
+
+          <%#= link_to_unless current_page?(controller: 'page', action: 'index') || current_page?('/'), embedded_svg('logo.svg'), root_path %>
+        </div>
+        <div class="work-time">
+          <p>12<span>:00</span> &mdash; 22<span>:00</span></p>
+          <i>Клуб доставки Їжі</i>
+        </div>
+        <div class="call-back">
+          <p>+38 (097) 097-05-05</p>
+          <a href="#call-me">замовити дзвінок</a>
+        </div>
+        <div class="core-cart">
+          <%= link_to '', user_cabinet_index_path, class: 'personal-cabinet' %>
+          <div id="cc-element">
+            <%= embedded_svg("cart.svg") %>
+          </div>
+        </div>
+      </section>
+      <section id="breadcrumbs">
+          <ol class="breadcrumb">
+            <%= render_breadcrumbs :tag => :li, :separator => "<li class='separator'>/</li>".html_safe %>
+          </ol>
+      </section>
+    </section>
+
+  </header>
 
 <%= yield %>
+</section>
+
+<footer>
+  <div id="sup-footer-full">
+
+  </div>
+  <div id="footer-container">
+    <div id="footer-row">
+      <div class="footer-left-section">
+        <h2>Хто ми?</h2>
+        <p>Їжаки — це незалежний клубний проект, який об'єднав сотні служб доставки піци, суші, їжі та продуктів в Єдину Систему Замовлень. </p>
+        <p>Мета проекту — забезпечити своїм користувачам найкращі умови для швидкого, зручного та вигідного здійснення замовлень.</p>
+      </div>
+      <div class="footer-center-section">
+        <h2>Ми у соц. мережах</h2>
+      </div>
+      <div class="footer-right-section">
+        <h2>Контакти</h2>
+        <h4><span>+38 (</span>097<span>)</span> 097<span>&mdash;</span>05<span>&mdash;</span>05</h4>
+        <a href="#call-back">замовити дзвінок</a>
+        <p>ТоВ “Їжаки” <br/>
+          вул. Львівська, 16, м. Стрий</p>
+      </div>
+    </div>
+    <div id="sub-footer-row">
+      <div class="subfooter-left-section">
+        <div id="studio-logo">
+          <%= embedded_svg("studio-logo.svg") %>
+          <p>Розроблено в студії  М. Вороніна <br/>
+            в 2014 році. </p>
+        </div>
+      </div>
+      <div class="subfooter-center-section">
+        <ul>
+          <li><%= link_to 'Правила користування' %></li>
+          <li><%= link_to 'Карта сайту' %></li>
+        </ul>
+      </div>
+      <div class="subfooter-right-section">
+        <a id="main-to-top" href="#header">
+          <%= embedded_svg("get-top.svg") %>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>

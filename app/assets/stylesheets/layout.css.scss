@@ -111,6 +111,124 @@ header{
   }
 }
 
+footer{
+  border-bottom: 2px solid $brand-orange;
+  color: #ffffff;
+  #sup-footer-full{
+    height: 60px;
+    width: 100%;
+    background: $brand-green;
+  }
+
+  #footer-container{
+    @include set_container;
+    #sub-footer-row{
+      @include set_row;
+      margin-top: 20px;
+      .subfooter-left-section{
+        @include set_grid;
+        @include set_grid_3;
+        #studio-logo{
+          display: inline;
+          svg{
+            float: left;
+            display: block;
+            width: 56px;
+            height: 56px;
+          }
+          p{
+            color: $brand-green;
+            display: block;
+            float: left;
+            margin: 8px 0 8px 10px;
+          }
+        }
+      }
+      .subfooter-center-section{
+        @include set_grid;
+        @include set_grid_8;
+        line-height: 40px;
+        ul{
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          li{
+            float: left;
+            margin-right: 15%;
+            margin-left: 15%;
+            a{
+              color: $brand-green;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+      .subfooter-right-section{
+        @include set_grid;
+        @include set_grid_1;
+
+        a{
+          width: 48px;
+          height: 48px;
+          display: inline;
+          text-decoration: none;
+          svg{
+            width: 48px;
+            height: 48px;
+          }
+        }
+      }
+    }
+    #footer-row{
+      @include set_row;
+      margin-top: 40px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.35);
+
+      .footer-center-section,
+      .footer-left-section,
+      .footer-right-section{
+        h2{
+          color: $brand-orange;
+          font-size: 32px;
+          font-family: "Lobster", cursive;
+          margin-top: 0;
+          margin-bottom: 8px;
+        }
+        a{
+          color: $brand-orange;
+          border-bottom: 1px dotted rgba($brand-orange, 0.5);
+          &:hover{
+            border-bottom: 1px dotted rgba($brand-orange, 1);
+          }
+        }
+      }
+
+      .footer-left-section{
+        @include set_grid;
+        @include set_grid_4;
+      }
+      .footer-center-section{
+        @include set_grid;
+        @include set_grid_4;
+      }
+      .footer-right-section{
+        @include set_grid;
+        @include set_grid_4;
+        h4{
+          color: #ffffff;
+          font-size: 28px;
+          font-family: "Lobster", cursive;
+          margin: 0;
+          span{
+            color: $brand-orange;
+          }
+        }
+      }
+    }
+  }
+}
+
 
 #index-banner{
   height: 580px;
