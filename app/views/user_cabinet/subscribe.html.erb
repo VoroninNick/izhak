@@ -7,7 +7,15 @@
       </div>
 
       <section id="dashboard-user-profile" class="subscribe">
-
+        <h2>Підписка на розсилку</h2>
+        <p>Отримуйте до себе на електронну пошту самі привабливі акційні пропозиції, інформацію про нові товари, самі свіжі новини з житті «Їжа.ки» та багато іншого!</p>
+        <div class="left-section">
+          <%= embedded_svg("subscribe-mail.svg") %>
+          <%= link_to current_user.email %>
+        </div>
+        <div class="right-section">
+          <a href="#unsubscribe">Відписатись від розсилки</a>
+        </div>
       </section>
 
     </div>

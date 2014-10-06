@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141004174804) do
+ActiveRecord::Schema.define(version: 20141005174109) do
 
   create_table "badges_sashes", force: true do |t|
     t.integer  "badge_id"
@@ -65,6 +65,32 @@ ActiveRecord::Schema.define(version: 20141004174804) do
   create_table "merit_scores", force: true do |t|
     t.integer "sash_id"
     t.string  "category", default: "default"
+  end
+
+  create_table "orders", force: true do |t|
+    t.boolean  "is_approved"
+    t.integer  "user_id"
+    t.float    "total_price"
+    t.text     "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id"
+
+  create_table "product_orders", force: true do |t|
+    t.integer "product_id"
+    t.integer "order_id"
+  end
+
+  add_index "product_orders", ["order_id"], name: "index_product_orders_on_order_id"
+  add_index "product_orders", ["product_id"], name: "index_product_orders_on_product_id"
+
+  create_table "products", force: true do |t|
+    t.string   "name"
+    t.float    "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "sashes", force: true do |t|

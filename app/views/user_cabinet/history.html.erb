@@ -7,7 +7,45 @@
       </div>
 
       <section id="dashboard-user-profile" class="history">
+        <% @history.each do |order| %>
+        <div class="history-item">
+          <div class="history-header">
+            <h3><%= order.created_at %></h3>
+          </div>
+          <div class="history-body">
+            <div class="number-wrapper">
+              <div class="number-left">&nbsp;</div>
+              <div class="number-center">
+                <%= order.id %>
+              </div>
+              <div class="number-right">&nbsp;</div>
+            </div>
+            <div class="product-wrapper">
+              <% order.products.each do |product| %>
+                <div class="product-item">
+                  <div class="avatar">
+                    <img src="http://placehold.it/150x150" alt=".descr"/>
+                  </div>
+                  <div class="descr">
+                    <h4>Пицца на тест</h4>
+                  </div>
 
+                </div>
+              <% end %>
+            </div>
+
+          </div>
+        </div>
+        <% end %>
+
+        <%#= @history.inspect %>
+
+        <%# @history.each do |order| %>
+          <%#= order.inspect %>
+          <%# order.products.each do |product| %>
+            <%#= product.inspect %>
+          <%# end %>
+        <%# end %>
       </section>
 
     </div>

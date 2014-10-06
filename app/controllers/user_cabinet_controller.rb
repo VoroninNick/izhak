@@ -10,7 +10,7 @@ class UserCabinetController < ApplicationController
 
   def history
     add_breadcrumb "Історія покупок", :user_cabinet_history_path
-
+    @history = Order.where(user_id: current_user.id)
   end
 
   def subscribe
