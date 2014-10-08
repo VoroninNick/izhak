@@ -189,17 +189,17 @@ footer{
       .footer-left-section,
       .footer-right-section{
         h2{
-          color: $brand-orange;
+          color: $brand-yellow;
           font-size: 32px;
           font-family: "Lobster", cursive;
           margin-top: 0;
           margin-bottom: 8px;
         }
         a{
-          color: $brand-orange;
-          border-bottom: 1px dotted rgba($brand-orange, 0.5);
+          color: $brand-green;
+          border-bottom: 1px dotted rgba($brand-green, 0.5);
           &:hover{
-            border-bottom: 1px dotted rgba($brand-orange, 1);
+            border-bottom: 1px dotted rgba($brand-green, 1);
           }
         }
       }
@@ -221,7 +221,7 @@ footer{
           font-family: "Lobster", cursive;
           margin: 0;
           span{
-            color: $brand-orange;
+            //color: $brand-orange;
           }
         }
       }
