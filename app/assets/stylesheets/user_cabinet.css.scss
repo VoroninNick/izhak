@@ -446,6 +446,10 @@
                 :-ms-input-placeholder { /* Internet Explorer 10+ */
                   color: #bdbec0;
                 }
+
+                &:focus{
+                  border: 1px solid $brand-green;
+                }
               }
             }
           }

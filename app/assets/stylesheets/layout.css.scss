@@ -133,13 +133,17 @@ footer{
           svg{
             float: left;
             display: block;
-            width: 56px;
-            height: 56px;
+            width: 52px;
+            height: 52px;
+            path{
+              fill: #939598;
+            }
           }
           p{
-            color: $brand-green;
+            color: #939598;
             display: block;
             float: left;
+            font-size: 14px;
             margin: 8px 0 8px 10px;
           }
         }
@@ -157,7 +161,8 @@ footer{
             margin-right: 15%;
             margin-left: 15%;
             a{
-              color: $brand-green;
+              color: #939598;
+              font-size: 14px;
               text-decoration: none;
             }
           }
@@ -168,13 +173,13 @@ footer{
         @include set_grid_1;
 
         a{
-          width: 48px;
-          height: 48px;
+          width: 42px;
+          height: 42px;
           display: inline;
           text-decoration: none;
           svg{
-            width: 48px;
-            height: 48px;
+            width: 42px;
+            height: 42px;
           }
         }
       }
@@ -207,6 +212,15 @@ footer{
       .footer-left-section{
         @include set_grid;
         @include set_grid_4;
+        svg{
+          width: 100%;
+          max-width: 82px;
+          float: left;
+          margin-right: 40px;
+          &:last-child{
+            margin-right: 0;
+          }
+        }
       }
       .footer-center-section{
         @include set_grid;

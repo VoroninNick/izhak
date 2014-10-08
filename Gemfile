@@ -46,6 +46,7 @@ gem 'merit'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
+#gem 'client_side_validations'
 
 group :development do
   gem 'sunspot_solr'

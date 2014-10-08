@@ -38,14 +38,14 @@ html, body {
 }
 #magic-wrapper {
   min-height: 100%;
-  margin-bottom: -440px;
+  margin-bottom: -490px;
 }
 #magic-wrapper:after {
   content: "";
   display: block;
 }
 footer, #magic-wrapper:after {
-  height: 440px;
+  height: 490px;
 }
 footer {
   background: url("Yizhaku-pattern-blue-15%25.jpg") repeat 0 0;
