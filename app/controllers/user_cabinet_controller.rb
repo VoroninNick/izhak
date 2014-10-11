@@ -15,7 +15,6 @@ class UserCabinetController < ApplicationController
 
   def subscribe
     add_breadcrumb "Підписка на розсилку", :user_cabinet_subscribe_path
-
   end
 
 end

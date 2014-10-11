@@ -1,0 +1,24 @@
+<%= simple_form_for(@product, url: my_product_index_path) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :name, label: "Назва", input_html: {placeholder: 'Піца'}, hint: "Назва ресторан" %>
+  <%= f.input :slug, :disabled => true, label: "Силка", input_html: {placeholder: 'pizza'}, hint: "Силка для відображення url, генерується автоматично" %>
+  <%= f.input :price, label: "Ціна", input_html: {placeholder: '20,25'}, hint: "Ціна за одиницю товару" %>
+  <%= f.input :description, label: "Опис", input_html: {placeholder: 'морква, бульба, цибуля'}, hint: "Компоненти страви" %>
+  <%= f.input :point, label: "Бали", input_html: {placeholder: '10'}, hint: "Бали за 1 куплену одиницю товару" %>
+  <%= f.association :category, :label_method => lambda { |category| "#{category.restoran.name} > #{category.name}" } %>
+  <%= f.submit "Зберегти", class: 'submit-btn' %>
+<% end %>
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    $('#product_category_id').selectize({
+      delimiter: ',',
+      persist: false,
+      create: function(input) {
+        return {
+          value: input,
+          text: input
+        }
+      }
+    });
+  });
+</script>

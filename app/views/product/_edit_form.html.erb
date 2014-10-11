@@ -1,0 +1,30 @@
+<%= simple_form_for(@product, url: my_product_update_path) do |f| %>
+
+
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@product.errors.count, "error") %> prohibited this restoran from being saved:</h3>
+
+      <ul>
+        <% @product.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+
+  <div class="field">
+    <%= f.label :name, "Название" %><br>
+    <%= f.text_field :name, placeholder: "" %>
+  </div>
+  <div class="field">
+    <%= f.label :slug, "Силка" %><br>
+    <%= f.text_field :slug, placeholder: "" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Зберегти" %>
+  </div>
+<% end %>

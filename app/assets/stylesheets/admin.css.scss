@@ -1,0 +1,289 @@
+@import "config";
+@import "grid";
+
+#dashboard-user-profile {
+
+  .back{
+    font-size: 14px;
+    line-height: 20px;
+    display: inline-block;
+    color: #00948F;
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(#00948F, 0.5);
+
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 400;
+
+    &:hover{
+      border-bottom: 1px dotted rgba(#00948F, 1);
+    }
+
+  }
+
+  h2{
+    font-family: "Lobster", cursive;
+    color: $brand-orange;
+    margin-bottom: 20px;
+    margin-top: 0;
+    font-size: 32px;
+  }
+
+  table{
+
+  }
+
+
+
+
+  form, #new_restoran, .edit_restoran {
+
+    .selectize-dropdown [data-selectable], .selectize-dropdown .optgroup-header{
+      padding: 8px 10px;
+      @include fira;
+      color: $brand-green;
+    }
+
+    .selectize-control{
+      height: 41px;
+    }
+
+    .selectize-input{
+      .item{
+        @include fira;
+
+      }
+    }
+
+
+
+    .alert{
+      padding: 10px 0px;
+      color: $brand-error;
+      font-weight: 600;
+      @include fira;
+      font-size: 14px;
+    }
+
+    ::-webkit-input-placeholder {
+      /* WebKit browsers */
+      color: #bdbec0;
+      font-weight: 300 !important;
+    }
+    :-moz-placeholder {
+      /* Mozilla Firefox 4 to 18 */
+      color: #bdbec0;
+      opacity: 1;
+      font-weight: 300 !important;
+    }
+    ::-moz-placeholder {
+      /* Mozilla Firefox 19+ */
+      color: #bdbec0;
+      opacity: 1;
+      font-weight: 300 !important;
+    }
+    :-ms-input-placeholder {
+      /* Internet Explorer 10+ */
+      color: #bdbec0;
+      font-weight: 300 !important;
+    }
+
+    display: block;
+
+    .select{
+      width: 100%;
+      label{
+        width: 100%;
+      }
+      select{
+        width: 100%;
+        color: $brand-green;
+        height: 41px;
+
+        background: transparent;
+
+        border-radius: 0;
+        -webkit-appearance: none;
+        -webkit-border-radius: 0px;
+
+        font-size: 16px;
+        padding: 8px 12px;
+        border: 1px solid rgba(#bdbec0, 1);
+
+        -webkit-transition: border 1s cubic-bezier(.55,0,.1,1);
+        -moz-transition: border 1s cubic-bezier(.55,0,.1,1);
+        -ms-transition: border 1s cubic-bezier(.55,0,.1,1);
+        -o-transition: border 1s cubic-bezier(.55,0,.1,1);
+        transition: border 1s cubic-bezier(.55,0,.1,1);
+
+        @include fira;
+        font-weight: 400;
+
+        option{
+          @include fira;
+          font-weight: 400;
+          color: $brand-green;
+
+        }
+      }
+    }
+
+    .field_with_errors{
+      input, select{
+        border: 1px solid $brand-error !important;
+      }
+    }
+
+    div.check_boxes{
+      label{
+        width: 100%;
+        display: block;
+        input[type="checkbox"]{
+          float: left;
+          display: block;
+          width: 20px;
+        }
+
+        .checkbox{
+          line-height: 14px;
+          margin-bottom: 8px;
+        }
+      }
+    }
+
+    .input {
+      width: 100%;
+      margin-bottom: 20px;
+
+
+      .error,
+      .hint{
+        display: block;
+        width: 50%;
+      }
+
+      .error{
+        color: $brand-error;
+        font-size: 12px;
+        font-style: italic;
+        float: left;
+        text-align: right;
+      }
+
+      .hint{
+        color: #bdbec0;
+        font-size: 12px;
+        font-style: italic;
+        float: left;
+      }
+
+
+
+      label {
+        @include fira;
+        color: $brand-orange;
+        font-size: 14px;
+        margin-left: 8px;
+        abbr{
+          border-bottom: 0;
+        }
+      }
+      textarea{
+        color: $brand-darkblue;
+        @include fira;
+        font-weight: 400;
+        font-style: italic;
+        width: inherit;
+        //padding: 8px 12px;
+        border: 1px solid rgba(#bdbec0, 1);
+
+        -webkit-transition: border 1s cubic-bezier(.55,0,.1,1);
+        -moz-transition: border 1s cubic-bezier(.55,0,.1,1);
+        -ms-transition: border 1s cubic-bezier(.55,0,.1,1);
+        -o-transition: border 1s cubic-bezier(.55,0,.1,1);
+        transition: border 1s cubic-bezier(.55,0,.1,1);
+
+
+
+        &:focus {
+          border: 1px solid $brand-green;
+        }
+      }
+      input {
+        color: $brand-green;
+
+        font-size: 16px;
+        width: inherit;
+        padding: 8px 12px;
+        border: 1px solid rgba(#bdbec0, 1);
+
+        -webkit-transition: border 1s cubic-bezier(.55,0,.1,1);
+        -moz-transition: border 1s cubic-bezier(.55,0,.1,1);
+        -ms-transition: border 1s cubic-bezier(.55,0,.1,1);
+        -o-transition: border 1s cubic-bezier(.55,0,.1,1);
+        transition: border 1s cubic-bezier(.55,0,.1,1);
+
+        @include fira;
+        font-weight: 400;
+
+
+
+        &:focus {
+          border: 1px solid $brand-green !important;
+        }
+      }
+
+    }
+
+    .selectize-input{
+      input{
+        border: 0 !important;
+        &:focus{
+          border: 0 !important;
+        }
+      }
+    }
+
+    .submit-btn{
+      margin-top: 20px;
+      display: inline-block;
+      padding: 10px 50px;
+      color: #ffffff;
+      background: $brand-orange;
+      text-transform: uppercase;
+      font-family: "Fira Sans", sans-serif;
+      font-weight: 600;
+    }
+
+  }
+}
+
+#notification{
+  //width: inherit;
+  background: $brand-green;
+  padding: 10px 0px;
+  margin-bottom: 20px;
+  border-radius: 2px;
+
+  p{
+    @include fira;
+    font-weight: 600;
+    font-size: 22px;
+    text-align: center;
+    color: #ffffff;
+    margin: 0;
+    text-transform: uppercase;
+  }
+}
+
+
+#admin-menu{
+  li{
+    &:first-child{
+      background: url("Yizhaku-pattern-blue-15%25.jpg") repeat !important;
+      color: #ffffff !important;
+      font-size: 22px;
+
+      font-family: "Lobster", cursive;
+    }
+  }
+}

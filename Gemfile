@@ -34,7 +34,6 @@ gem 'will_paginate', '~> 3.0'
 gem 'fancybox2-rails', '~> 0.2.8'
 gem 'progress_bar'
 gem 'sunspot_rails'
-gem 'slim-rails'
 gem 'simple_form'
 gem "selectize-rails"
 gem 'better_errors'
@@ -47,6 +46,7 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 #gem 'client_side_validations'
+gem 'mercury', github: 'jejacks0n/mercury', branch: 'mercury2'
 
 group :development do
   gem 'sunspot_solr'

@@ -1,0 +1,7 @@
+<%= simple_form_for(@restoran, url: my_restoran_index_path) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :name, label: "Назва", input_html: {placeholder: 'Піца'}, hint: "Назва ресторан" %>
+  <%= f.input :slug, label: "Силка", input_html: {placeholder: 'pizza'}, hint: "Силка для відображення url" %>
+  <%= f.input :content, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'} }, label: "Опис" %>
+  <%= f.submit "Зберегти", class: 'submit-btn' %>
+<% end %>

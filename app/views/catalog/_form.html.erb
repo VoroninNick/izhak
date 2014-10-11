@@ -1,0 +1,7 @@
+<%= simple_form_for(@catalog, url: my_catalog_index_path) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :name, label: "Назва", input_html: {placeholder: 'Піца'}, hint: "Назва категорії їжі" %>
+  <%= f.input :slug, label: "Силка", input_html: {placeholder: 'pizza'}, hint: "Силка для відображення url" %>
+  <%= f.association :restoran, label: "Ресторан", hint: "Вкажіть для якого ресторану" %>
+  <%= f.submit "Зберегти", class: 'submit-btn' %>
+<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141005174109) do
+ActiveRecord::Schema.define(version: 20141011145244) do
 
   create_table "badges_sashes", force: true do |t|
     t.integer  "badge_id"
@@ -23,6 +23,32 @@ ActiveRecord::Schema.define(version: 20141005174109) do
   add_index "badges_sashes", ["badge_id", "sash_id"], name: "index_badges_sashes_on_badge_id_and_sash_id"
   add_index "badges_sashes", ["badge_id"], name: "index_badges_sashes_on_badge_id"
   add_index "badges_sashes", ["sash_id"], name: "index_badges_sashes_on_sash_id"
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.integer  "restoran_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "categories", ["slug"], name: "index_categories_on_slug"
+
+  create_table "ckeditor_assets", force: true do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    limit: 30
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
 
   create_table "identities", force: true do |t|
     t.integer  "user_id"
@@ -91,7 +117,31 @@ ActiveRecord::Schema.define(version: 20141005174109) do
     t.float    "price"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
+    t.string   "description"
+    t.integer  "point"
+    t.string   "avatar_file_name"
+    t.integer  "avatar_file_size"
+    t.string   "avatar_content_type"
+    t.datetime "avatar_updated_at"
+    t.integer  "category_id"
   end
+
+  add_index "products", ["slug"], name: "index_products_on_slug"
+
+  create_table "restorans", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "slug"
+    t.text     "content"
+    t.string   "avatar_file_name"
+    t.integer  "avatar_file_size"
+    t.string   "avatar_content_type"
+    t.datetime "avatar_updated_at"
+  end
+
+  add_index "restorans", ["slug"], name: "index_restorans_on_slug"
 
   create_table "sashes", force: true do |t|
     t.datetime "created_at"

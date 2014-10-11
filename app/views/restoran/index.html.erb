@@ -1,0 +1,52 @@
+<section id="dashboard">
+  <div id="dashboard-container">
+    <div id="dashboard-row">
+
+      <div class="dashboard-navigation">
+        <%= render partial: 'partials/user_cabinet/side_menu' %>
+      </div>
+
+      <section id="dashboard-user-profile">
+        <% if notice %>
+          <div id="notification">
+            <p><%= notice %></p>
+          </div>
+          <script type="text/javascript" charset="utf-8">
+            $(document).ready(function(e){
+              var $notification = $("#notification");
+              setTimeout(function() {
+                $notification.fadeOut("slow");
+              }, 4000);
+            });
+          </script>
+        <% end %>
+        <h2>Ресторани</h2>
+        <table class="table table-responsive">
+          <thead>
+          <tr>
+            <th>Назва</th>
+            <th>Силка</th>
+            <th colspan="2"></th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @restorans.each do |restoran| %>
+            <tr>
+              <td><%= restoran.name %></td>
+              <td><%= restoran.slug %></td>
+              <td><%= link_to 'Редагувати', my_restoran_edit_path(restoran) %></td>
+              <td><%= link_to 'Видалити', my_restoran_delete_path(restoran), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+
+        <br>
+
+        <%= link_to 'Додати новий', my_restoran_new_path, class: 'back' %>
+      </section>
+
+    </div>
+  </div>
+</section>

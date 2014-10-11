@@ -8,6 +8,13 @@ GIT
       rails (>= 4.0)
       rails_admin (>= 0.6.2)
 
+GIT
+  remote: git://github.com/jejacks0n/mercury.git
+  revision: 95e6decf9fd1b2a7f705e45b64c210e86cd2c885
+  branch: mercury2
+  specs:
+    mercury (2.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -233,14 +240,6 @@ GEM
     simple_form (3.0.2)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
-    slim (2.0.3)
-      temple (~> 0.6.6)
-      tilt (>= 1.3.3, < 2.1)
-    slim-rails (2.1.5)
-      actionpack (>= 3.0, < 4.2)
-      activesupport (>= 3.0, < 4.2)
-      railties (>= 3.0, < 4.2)
-      slim (~> 2.0)
     sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -259,7 +258,6 @@ GEM
       rails (>= 3)
       sunspot (= 2.1.1)
     sunspot_solr (2.1.1)
-    temple (0.6.8)
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
@@ -298,6 +296,7 @@ DEPENDENCIES
   lograge
   logstash-event
   mail_form
+  mercury!
   merit
   nokogiri
   nprogress-rails
@@ -320,7 +319,6 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   selectize-rails
   simple_form
-  slim-rails
   sqlite3
   sunspot_rails
   sunspot_solr

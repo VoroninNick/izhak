@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require ckeditor/init
 //= require_tree .
 
 
@@ -28,4 +29,40 @@ $(function() {
             }
         }
     });
+});
+
+
+$(document).ready(function(e){
+
+
+    // User profile menu
+    var $li_user_profile = $(".dashboard-navigation ul li");
+    var $li_user_current = $(".dashboard-navigation ul .current");
+    var $ul_holder_user = $(".dashboard-navigation");
+
+    console.log("Dashboard has " + $li_user_profile.length + " menus to choose!");
+
+    //window.onresize = function(event) {
+        if(window.outerWidth < 720){
+            $ul_holder_user.click(function(e){
+                if($(this).height() == 61){
+                    $(this).height($li_user_profile.length*61);
+                    $li_user_profile.show();
+                }else{
+
+
+                    $li_user_profile.hide();
+                    $li_user_current.show();
+
+                    $(this).height('61');
+                }
+            });
+        }else{
+            $ul_holder_user.click(function(e){
+                //e.preventDefault();
+            });
+        }
+    //};
+
+
 });

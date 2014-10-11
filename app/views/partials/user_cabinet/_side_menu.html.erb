@@ -2,7 +2,15 @@
   <li <%- if controller_name == "user_cabinet" && action_name == "index" %> class="current" <% end -%> ><%= link_to "Мій профіль", user_cabinet_index_path %></li>
   <li <%- if controller_name == "user_cabinet" && action_name == "history" %> class="current" <% end -%> ><%= link_to "Історія покупок", user_cabinet_history_path %></li>
   <li <%- if controller_name == "user_cabinet" && action_name == "subscribe" %> class="current" <% end -%> ><%= link_to "Підписка на розсилку", user_cabinet_subscribe_path %></li>
-  <li><%= link_to 'Меню' %></li>
-  <li><%= link_to 'Продукти' %></li>
+
+</ul>
+
+<ul id="admin-menu">
+  <li>Адмініструваня</li>
+  <li <%- if controller_name == "restoran" && action_name == "index" || controller_name == 'restoran' && action_name == 'edit' || controller_name == 'restoran' && action_name == 'new' || controller_name == 'restoran' && action_name == 'create' || controller_name == 'restoran' && action_name == 'show' || controller_name == 'restoran' && action_name == 'update' %> class="current" <% end -%>><%= link_to 'Ресторани', my_restoran_index_path  %></li>
+  <li <%- if controller_name == "catalog" && action_name == "index" || controller_name == 'catalog' && action_name == 'edit' || controller_name == 'catalog' && action_name == 'new' || controller_name == 'catalog' && action_name == 'create' || controller_name == 'catalog' && action_name == 'show' || controller_name == 'catalog' && action_name == 'update' %> class="current" <% end -%>><%= link_to 'Каталог їжі', my_catalog_index_path  %></li>
+  <li <%- if controller_name == "product" && action_name == "index" || controller_name == 'product' && action_name == 'edit' || controller_name == 'product' && action_name == 'new' || controller_name == 'product' && action_name == 'create' || controller_name == 'product' && action_name == 'show' || controller_name == 'product' && action_name == 'update' %> class="current" <% end -%>><%= link_to 'Їжа', my_product_index_path  %></li>
   <li><%= link_to 'Замовленя' %></li>
+  <li><%= link_to 'Бали' %></li>
+  <li><%= link_to 'Зворотній виклик' %></li>
 </ul>

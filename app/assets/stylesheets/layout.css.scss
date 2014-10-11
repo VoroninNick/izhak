@@ -1,11 +1,19 @@
 @import "config";
 @import "grid";
 
+body{
+
+}
+
 header{
   width: 100%;
   background: rgba($brand-orange, 1);
   height: 90px;
+
   .core-header{
+    @media (max-width: 720px) {
+      display: none;
+    }
     @include set_container;
     .header-menu-row{
       @include set_row;
@@ -121,6 +129,9 @@ footer{
   }
 
   #footer-container{
+    @media (max-width: 720px) {
+      display: none;
+    }
     @include set_container;
     #sub-footer-row{
       @include set_row;
