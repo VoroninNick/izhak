@@ -29,13 +29,56 @@
   }
 
   table{
+    .submit-btn{
+      border-radius: 2px;
+      display: inline-block;
+      padding: 0px 15px;
+      color: #ffffff;
+      background: $brand-orange;
+      text-transform: uppercase;
+      font-family: "Fira Sans", sans-serif;
+      font-weight: 600;
+    }
 
+    thead{
+      tr{
+        th{
+          color: $brand-green;
+          @include fira;
+          font-weight: 600;
+        }
+      }
+    }
+
+    tbody{
+      tr{
+        td{
+          color: $brand-darkblue;
+          @include fira;
+          line-height: 41px;
+        }
+      }
+    }
   }
 
 
 
 
   form, #new_restoran, .edit_restoran {
+
+    input.disabled{
+      background: #d3d3d3 !important;
+    }
+
+    .image_preview{
+      img{
+        width: 100%;
+        max-width: 300px;
+        display: block;
+        margin: 2px 0 20px 0;
+      }
+
+    }
 
     .selectize-dropdown [data-selectable], .selectize-dropdown .optgroup-header{
       padding: 8px 10px;

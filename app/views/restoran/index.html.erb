@@ -35,8 +35,8 @@
             <tr>
               <td><%= restoran.name %></td>
               <td><%= restoran.slug %></td>
-              <td><%= link_to 'Редагувати', my_restoran_edit_path(restoran) %></td>
-              <td><%= link_to 'Видалити', my_restoran_delete_path(restoran), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Редагувати', my_restoran_edit_path(restoran), class: 'submit-btn' %></td>
+              <td><%= link_to 'Видалити', my_restoran_delete_path(restoran), method: :delete, data: { confirm: 'Are you sure?' }, class: 'submit-btn' %></td>
             </tr>
           <% end %>
           </tbody>

@@ -46,6 +46,7 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 #gem 'client_side_validations'
+gem 'simple_form_fancy_uploads'
 gem 'mercury', github: 'jejacks0n/mercury', branch: 'mercury2'
 
 group :development do

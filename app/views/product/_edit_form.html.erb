@@ -1,30 +1,25 @@
 <%= simple_form_for(@product, url: my_product_update_path) do |f| %>
-
-
-  <% if @product.errors.any? %>
-    <div id="error_explanation">
-      <h3><%= pluralize(@product.errors.count, "error") %> prohibited this restoran from being saved:</h3>
-
-      <ul>
-        <% @product.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-
-
-
-  <div class="field">
-    <%= f.label :name, "Название" %><br>
-    <%= f.text_field :name, placeholder: "" %>
-  </div>
-  <div class="field">
-    <%= f.label :slug, "Силка" %><br>
-    <%= f.text_field :slug, placeholder: "" %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Зберегти" %>
-  </div>
+  <%= f.error_notification %>
+  <%= f.input :name, label: "Назва", input_html: {placeholder: 'Піца'}, hint: "Назва ресторан" %>
+  <%= f.input :slug, :disabled => true, label: "Силка", input_html: {placeholder: 'pizza'}, hint: "Силка для відображення url, генерується автоматично" %>
+  <%= f.input :avatar, label: "Головне зображеня", as: :image_preview %>
+  <%= f.input :price, label: "Ціна", input_html: {placeholder: '20,25'}, hint: "Ціна за одиницю товару" %>
+  <%= f.input :description, label: "Опис", input_html: {placeholder: 'морква, бульба, цибуля'}, hint: "Компоненти страви" %>
+  <%= f.input :point, label: "Бали", input_html: {placeholder: '10'}, hint: "Бали за 1 куплену одиницю товару" %>
+  <%= f.association :category, :label_method => lambda { |category| "#{category.restoran.name} > #{category.name}" } %>
+  <%= f.submit "Зберегти", class: 'submit-btn' %>
 <% end %>
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    $('#product_category_id').selectize({
+      delimiter: ',',
+      persist: false,
+      create: function(input) {
+        return {
+          value: input,
+          text: input
+        }
+      }
+    });
+  });
+</script>

@@ -37,8 +37,8 @@
               <td><%= catalog.name %></td>
               <td><%= catalog.slug %></td>
               <td><%= catalog.restoran.name %></td>
-              <td><%= link_to 'Редагувати', my_catalog_edit_path(catalog) %></td>
-              <td><%= link_to 'Видалити', my_catalog_delete_path(catalog), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Редагувати', my_catalog_edit_path(catalog), class: 'submit-btn' %></td>
+              <td><%= link_to 'Видалити', my_catalog_delete_path(catalog), method: :delete, data: { confirm: 'Are you sure?' }, class: 'submit-btn' %></td>
             </tr>
           <% end %>
           </tbody>

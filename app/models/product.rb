@@ -9,6 +9,20 @@ class Product < ActiveRecord::Base
 
   validates :name, presence: true
   validates :slug, presence: true, uniqueness: true
+  validates :price, presence: true
+  validates :description, presence: true
+  validates :point, presence: true
+  #validates :avatar, presence: true
+  #validates :category, presence: true
+
+  has_attached_file :avatar, styles:{
+                               thumb: '60x60#',
+                               thumb_pr: '120x120#'
+                           },
+                    url:'/assets/images/food/:class/:id/image_:style.:extension',
+                    path:':rails_root/public:url'
+
+  validates_attachment :avatar, content_type: { content_type: ['image/jpg', 'image/jpeg', 'image/png', 'image/gif', 'image/svg+xml'] }
 
   accepts_nested_attributes_for :category
 
