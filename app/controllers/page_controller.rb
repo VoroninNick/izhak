@@ -25,4 +25,34 @@ class PageController < ApplicationController
   def products_item
 
   end
+
+
+
+  # Order system
+  def order
+
+  end
+
+  def new_order
+    @order = Order.new
+  end
+
+  def submit_order
+    @order = Order.new(order_params)
+
+    if @order.save
+
+    else
+
+    end
+
+  end
+
+
+  private
+
+  def order_params
+    params.require(:order).permit(:comment, :products)
+  end
+
 end

@@ -1,7 +1,87 @@
 @import "config";
 @import "grid";
 
+
+
+
 #dashboard-user-profile {
+
+
+  #invoice{
+    h3{
+      font-family: "Lobster", cursive;
+      color: $brand-darkblue;
+      font-size: 28px;
+    }
+    .user_details{
+      @include clearfix;
+      .ud-left{
+        float: left;
+        width: 40%;
+
+      }
+      .ud-right{
+        float: left;
+        width: 60%;
+      }
+    }
+    .total-holder{
+      @include clearfix;
+      .user_point{
+        float: left;
+        width: 40%;
+
+        .point{
+
+          font-family: "Lobster", cursive;
+          svg{
+            width: 100%;
+            max-width: 80px;
+            display: inline-block;
+            float: left;
+          }
+          p{
+            line-height: 80px;
+            padding-left: 25px;
+            display: inline-block;
+            float: left;
+            margin: 0;
+            color: $brand-orange !important;
+            font-size: 38px;
+          }
+        }
+
+
+      }
+      .user_total{
+        float: left;
+        width: 60%;
+        position: relative;
+        p{
+          line-height: 80px;
+          padding-left: 0px;
+          display: inline-block;
+          float: left;
+          margin: 0;
+          color: $brand-darkblue !important;
+          font-size: 38px;
+          font-family: "Lobster", cursive;
+          span{
+
+            font-size: 14px;
+            @include fira;
+            color: $brand-green;
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            line-height: 20px;
+          }
+        }
+      }
+    }
+
+  }
+
 
   .back{
     font-size: 14px;
@@ -67,7 +147,7 @@
   form, #new_restoran, .edit_restoran {
 
     input.disabled{
-      background: #d3d3d3 !important;
+      background: #ebebeb !important;
     }
 
     .image_preview{
@@ -320,13 +400,5 @@
 
 
 #admin-menu{
-  li{
-    &:first-child{
-      background: url("Yizhaku-pattern-blue-15%25.jpg") repeat !important;
-      color: #ffffff !important;
-      font-size: 22px;
 
-      font-family: "Lobster", cursive;
-    }
-  }
 }

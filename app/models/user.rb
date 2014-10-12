@@ -1,4 +1,12 @@
 class User < ActiveRecord::Base
+
+  enum role: [:user, :order_manager, :admin, :developer]
+  after_initialize :set_default_role, :if => :new_record?
+
+  def set_default_role
+    self.role ||= :user
+  end
+
   TEMP_EMAIL_PREFIX = 'change@me'
   TEMP_EMAIL_REGEX = /\Achange@me/
 
@@ -8,7 +16,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
-  attr_accessible :email, :encrypted_password, :password, :first_name, :last_name
+  attr_accessible :email, :encrypted_password, :password, :first_name, :last_name, :role
 
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
 

@@ -53,4 +53,6 @@ group :development do
   gem 'sunspot_solr'
 end
 
+gem 'newrelic_rpm'
+
 

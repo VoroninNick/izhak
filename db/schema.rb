@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141011145244) do
+ActiveRecord::Schema.define(version: 20141011203423) do
 
   create_table "badges_sashes", force: true do |t|
     t.integer  "badge_id"
@@ -169,6 +169,7 @@ ActiveRecord::Schema.define(version: 20141011145244) do
     t.integer  "level",                  default: 0
     t.string   "first_name"
     t.string   "last_name"
+    t.integer  "role"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

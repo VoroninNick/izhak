@@ -1,5 +1,6 @@
 class ProductController < ApplicationController
   before_action :authenticate_user!
+  before_action :get_admin
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   add_breadcrumb "<span>//</span> Особистий кабінет".html_safe, :my_index_path
@@ -54,6 +55,13 @@ class ProductController < ApplicationController
   end
 
   private
+
+  def get_admin
+    unless current_user.admin? || current_user.order_manager?
+      redirect_to my_index_path, :notice => "Access denied."
+    end
+  end
+
   # Use callbacks to share common setup or constraints between actions.
   def set_product
     @product = Product.find_by_slug!(params[:id])

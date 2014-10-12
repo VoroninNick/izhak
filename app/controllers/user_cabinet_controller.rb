@@ -17,4 +17,8 @@ class UserCabinetController < ApplicationController
     add_breadcrumb "Підписка на розсилку", :user_cabinet_subscribe_path
   end
 
+  def feedback
+    add_breadcrumb "Залишити відгук", :user_cabinet_subscribe_path
+  end
+
 end

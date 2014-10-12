@@ -1,0 +1,71 @@
+<%= simple_form_for(@order, url: my_order_update_path) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :is_approved, :as => :select, :collection => [['Так',true], ['Ні',false]], :include_blank => false, :label => "Підтверджено" %>
+  <%= f.input :id, label: "Ід замовлення", hint: "Ідентифікатор замовлення", :disabled => true %>
+  <%#= f.input :user, :disabled => true, label: "Користувач", hint: "Пошта користувача шо замовив" %>
+  <div class="input">
+    <label for="order_user_id">Користувач</label>
+    <input type="text" value="<%= @order.user.email %>" disabled id="order_user_id"/>
+  </div>
+  <%= f.input :total_price, label: "Загальна сума" %>
+  <%= f.association :products, label: "Ціна", hint: "Ціна за одиницю товару", as: :check_boxes %>
+  <%#= f.input :description, label: "Опис", input_html: {placeholder: 'морква, бульба, цибуля'}, hint: "Компоненти страви" %>
+  <%#= f.input :point, label: "Бали", input_html: {placeholder: '10'}, hint: "Бали за 1 куплену одиницю товару" %>
+  <%#= f.association :category, :label_method => lambda { |category| "#{category.restoran.name} > #{category.name}" } %>
+  <%= f.submit "Зберегти", class: 'submit-btn' %>
+<% end %>
+
+
+<div id="invoice">
+  <div class="user_details">
+    <h3>Дані користувача:</h3>
+    <div class="ud-left">
+      <p><i class="address_icon"></i> Кульпарківська, 48а/14</p>
+      <p><i class="phone_icon"></i> +380631802426</p>
+      <p><i class="email_icon"></i> <%= mail_to(@order.user.email) %></p>
+    </div>
+    <div class="ud-right">
+      <p>Гармонический интервал, так или иначе, изменяем. Кластерное вибрато, в том числе, использует резкий рок-н-ролл 50-х. Как мы уже знаем, аллегро монотонно имеет контрапункт контрастных фактур. Глиссандирующая ритмоформула фактурна. Очевидно, что разносторонняя пятиступенчатая громкостная пирамида возможна.</p>
+    </div>
+  </div>
+  <div class="total-holder">
+    <div class="user_point">
+      <h3>Балів витрачено:</h3>
+      <div class="point">
+        <%= embedded_svg("point.svg") %> <p>120</p>
+      </div>
+    </div>
+
+    <div class="user_total">
+      <h3>Загальна сума:</h3>
+      <p> 1 200 грн. <span>всього 44 товара</span></p>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+
+
+
+    $("#order_user_id").click(function(e){
+      e.preventDefault();
+      document.location.href = "mailto:<%= @order.user.email %>"
+    });
+
+    $('#product_category_id').selectize({
+      delimiter: ',',
+      persist: false,
+      create: function(input) {
+        return {
+          value: input,
+          text: input
+        }
+      }
+    });
+  });
+</script>

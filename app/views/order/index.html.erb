@@ -1,0 +1,54 @@
+<section id="dashboard">
+  <div id="dashboard-container">
+    <div id="dashboard-row">
+
+      <div class="dashboard-navigation">
+        <%= render partial: 'partials/user_cabinet/side_menu' %>
+      </div>
+
+      <section id="dashboard-user-profile">
+        <% if notice %>
+          <div id="notification">
+            <p><%= notice %></p>
+          </div>
+          <script type="text/javascript" charset="utf-8">
+            $(document).ready(function(e){
+              var $notification = $("#notification");
+              setTimeout(function() {
+                $notification.fadeOut("slow");
+              }, 4000);
+            });
+          </script>
+        <% end %>
+        <h2>Замовлення</h2>
+        <table class="table table-responsive">
+          <thead>
+          <tr>
+            <th>Підтверджено</th>
+            <th>Ід</th>
+            <th>Користувач</th>
+            <th>Бали</th>
+            <th>Сума</th>
+            <th colspan="2"></th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @orders.each do |order| %>
+            <tr>
+              <td><%= order.is_approved %></td>
+              <td><%= order.id %></td>
+              <td><%= order.user.email %></td>
+              <td><%= order.id %></td>
+              <td><%= order.total_price %></td>
+              <td><%= link_to 'Редагувати', my_order_edit_path(order), class: 'submit-btn' %></td>
+              <td><%= link_to 'Видалити', my_order_delete_path(order), method: :delete, data: { confirm: 'Are you sure?' }, class: 'submit-btn' %></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </section>
+
+    </div>
+  </div>
+</section>

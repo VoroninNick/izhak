@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  get 'product/index'
-
   mount Ckeditor::Engine => '/ckeditor'
-  # Section for user dashboard
+
+  # Section for user dashboard START
   devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }, skip: [:sessions, :passwords, :confirmations, :registrations]
   devise_scope :user do
 
@@ -37,12 +36,14 @@ Rails.application.routes.draw do
       # account deletion
       delete '' => 'devise/registrations#destroy'#, as: 'delete_user_registration'
     end
-
   end
+  # Section for user dashboard END
+
   get '/my', to: redirect('/my/dashboard'), as: 'my_index'
   get '/my/dashboard', to: 'user_cabinet#index', as: 'user_cabinet_index'
   get '/my/dashboard/history', to: 'user_cabinet#history', as: 'user_cabinet_history'
   get '/my/dashboard/subscribe', to: 'user_cabinet#subscribe', as: 'user_cabinet_subscribe'
+  get '/my/dashboard/feedback', to: 'user_cabinet#feedback', as: 'user_cabinet_feedback'
 
   # Restorans START
   get '/my/dashboard/restorans', to: 'restoran#index', as: 'my_restoran_index'
@@ -73,6 +74,22 @@ Rails.application.routes.draw do
   put '/my/dashboard/products/:id', to: 'product#update', as: 'my_product_update'
   patch '/my/dashboard/products/:id', to: 'product#update', as: 'my_product_path_update'
   # Products END
+
+  # Orders START
+  get '/my/dashboard/orders', to: 'order#index', as: 'my_order_index'
+  #get '/my/dashboard/orders/new', to: 'order#new', as: 'my_order_new'
+  #post '/my/dashboard/orders', to: 'order#create', as: 'my_order_create'
+  get '/my/dashboard/orders/:id/edit', to: 'order#edit', as: 'my_order_edit'
+  delete '/my/dashboard/orders/:id', to: 'order#destroy', as: 'my_order_delete'
+  put '/my/dashboard/orders/:id', to: 'order#update', as: 'my_order_update'
+  patch '/my/dashboard/orders/:id', to: 'order#update', as: 'my_order_path_update'
+
+
+  get '/order', to: 'page#order', as: 'order_index'
+  get '/order/create', to: 'page#new_order', as: 'order_new'
+  post '/order/submit', to: 'page#submit_order', as: 'order_submit'
+
+  # Orders END
 
   root 'page#index'
 end

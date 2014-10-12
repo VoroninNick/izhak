@@ -1,5 +1,5 @@
 class RestoranController < ApplicationController
-
+  before_action :get_admin
   before_action :authenticate_user!
   before_action :set_restoran, only: [:show, :edit, :update, :destroy]
 
@@ -60,6 +60,13 @@ class RestoranController < ApplicationController
   end
 
   private
+
+  def get_admin
+    unless current_user.admin? || current_user.order_manager?
+      redirect_to my_index_path, :notice => "Access denied."
+    end
+  end
+
   # Use callbacks to share common setup or constraints between actions.
   def set_restoran
     @restoran = Restoran.find_by_slug!(params[:id])
