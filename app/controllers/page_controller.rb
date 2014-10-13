@@ -1,4 +1,5 @@
 class PageController < ApplicationController
+
   def index
   end
 
@@ -7,7 +8,8 @@ class PageController < ApplicationController
   end
 
   def restorans_item
-
+    @restoran = Restoran.find_by_slug!(params[:id])
+    add_breadcrumb "<span>//</span> #{@restoran.name}".html_safe
   end
 
   def catalogs

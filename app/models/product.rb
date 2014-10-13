@@ -17,7 +17,8 @@ class Product < ActiveRecord::Base
 
   has_attached_file :avatar, styles:{
                                thumb: '60x60#',
-                               thumb_pr: '120x120#'
+                               thumb_pr: '120x120#',
+                               main: '238x238#'
                            },
                     url:'/assets/images/food/:class/:id/image_:style.:extension',
                     path:':rails_root/public:url'

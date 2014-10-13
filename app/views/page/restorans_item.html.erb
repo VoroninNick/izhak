@@ -1,0 +1,64 @@
+
+
+<section id="restoran">
+
+
+  <div id="restoran-container">
+
+    <div id="restoran-row">
+      <div class="restoran-menu">
+        <ul>
+          <li class="current"><%= link_to 'Все меню' %> <sup><span>(</span>78<%#= @restoran.categories.products.count %><span>)</span></sup></li>
+          <%- @restoran.categories.each do |menu| %>
+            <li>
+              <%= link_to menu.name, products_by_category_path(restoran_id: @restoran.slug, id: menu.id) %> <%- if menu.products.count > 0 %> <sup><span>(</span><%= menu.products.count %><span>)</span></sup><% end -%>
+            </li>
+          <% end -%>
+        </ul>
+        <div class="restoran-description">
+          <h3>Тратторія «Бруно»</h3>
+          <%= image_tag 'tr.jpg' %>
+          <p>Тратторія «Бруно» пропонує вас скуштувати найкращі страви італійської кухні.</p>
+          <p class="address"><i class="addres-icon"></i>вул. Львівська 16, м. Стрий</p>
+          <p class="phone"><i class="phone-icon"></i>+38 (097) 097 -05-05</p>
+        </div>
+      </div>
+
+      <div class="restoran-products">
+
+        <%- @restoran.categories.each do |menu_product| %>
+          <% menu_product.products.each do |product| %>
+            <div class="product_item <%= cycle('first', '', '', 'last') %>">
+              <%#= product.inspect %>
+              <div class="wrapp-me">
+                <div class="img-hol">
+                  <%= image_tag(product.avatar.url(:main)) %>
+                </div>
+                <div class="descr">
+                  <div class="price_tag"><%= product.price.round %></div>
+                  <div class="price_currency">
+                    <span>грн</span>
+                  </div>
+                  <h3><%= product.name %></h3>
+                  <div class="hidden-block">
+                    <p><%= product.description %></p>
+                  </div>
+                  <div class="brand-btn-holder">
+                    <input type="text" class="quantity" />
+                    <a class="order-main-btn" href="#">ЗАМОВИТИ</a>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          <% end %>
+        <% end -%>
+
+
+      </div>
+    </div>
+  </div>
+
+
+</section>

@@ -89,6 +89,10 @@ Rails.application.routes.draw do
   get '/order/create', to: 'page#new_order', as: 'order_new'
   post '/order/submit', to: 'page#submit_order', as: 'order_submit'
 
+
+  get '/restoran/:id', to: 'page#restorans_item', as: 'restorans_item'
+  get '/restoran/:restoran_id/:id', to: 'page#catalogs_item', as: 'products_by_category'
+
   # Orders END
 
   root 'page#index'

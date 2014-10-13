@@ -274,6 +274,7 @@ footer{
         @include set_grid_4;
         position: relative;
         top: -205px;
+        cursor: pointer;
         &:first-child{
 
         }

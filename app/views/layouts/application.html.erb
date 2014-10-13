@@ -1,5 +1,16 @@
 <!DOCTYPE html>
-<html>
+
+<%- if @restoran %>
+  <% if @restoran.slug == "barbarus" %>
+    <html id="barbarus-restoran">
+  <% elsif @restoran.slug == "bruno" %>
+    <html id="bruno-restoran">
+  <% elsif @restoran.slug == "baba-franya" %>
+    <html id="baba-franya-restoran">
+  <% end %>
+<% else %>
+  <html>
+<% end %>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
   <meta name="msapplication-tap-highlight" content="no" />
@@ -27,8 +38,8 @@
     }(document, 'script', 'facebook-jssdk'));
   </script>
 </head>
-<body unresolved id="header">
-
+<body unresolved id="header" >
+<%#= request.path %>
 <section id="magic-wrapper">
   <header>
     <section class="core-header">

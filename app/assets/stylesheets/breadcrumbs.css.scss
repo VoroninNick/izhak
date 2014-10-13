@@ -1,6 +1,14 @@
 @import "config";
 @import "grid";
 
+#dashboard{
+  #breadcrumbs{
+    li{
+      color: #ffffff !important;
+    }
+  }
+}
+
 #breadcrumbs{
   @include set_row;
   ol{
@@ -18,7 +26,7 @@
       float: left;
       @include fira;
       font-size: 14px;
-      color: #ffffff;
+      color: $brand-darkblue;
       font-weight: 500;
       margin-right: 6px;
       span{
@@ -29,7 +37,7 @@
         @include fira;
         font-weight: 500;
         font-size: 14px;
-        color: #ffffff;
+        color: $brand-darkblue;
         border-bottom: 1px solid rgba(#ffffff, 0.01);
       }
     }

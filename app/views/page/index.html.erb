@@ -5,7 +5,7 @@
 <section id="index-restorans">
   <div class="restorans-container">
     <div class="restorans-row">
-      <div class="restorans-grid">
+      <div class="restorans-grid" id="bruno-go">
         <div class="restorans-item bruno">
           <%= embedded_svg("bruno-logo.svg") %>
         </div>
@@ -13,7 +13,7 @@
         <p>Піца, паста, свіжі салати, напої</p>
       </div>
 
-      <div class="restorans-grid">
+      <div class="restorans-grid" id="baba-frana-go">
         <div class="restorans-item baba-frana">
           <%= embedded_svg("baba-frana.svg") %>
         </div>
@@ -21,17 +21,38 @@
         <p>Страви з мяса, борщ, зупа, вареники, узвари, солодке</p>
       </div>
 
-      <div class="restorans-grid">
+      <div class="restorans-grid" id="barbaris-go">
         <div class="restorans-item barbaris">
           <%= embedded_svg("barbaris.svg") %>
         </div>
         <h2>Японська кухня</h2>
         <p>Суші, супи, та інші японські страви</p>
       </div>
-
-
     </div>
   </div>
+  <script type="text/javascript" charset="utf-8">
+    $(document).ready(function(e){
+      var $bruno = $("#bruno-go");
+      var $baba_frana = $("#baba-frana-go");
+      var $barbaris = $("#barbaris-go");
+
+      $bruno.click(function(e){
+        e.preventDefault();
+        window.location.href = '<%= restorans_item_path(id: 'bruno') %>';
+      });
+
+      $baba_frana.click(function(e){
+        e.preventDefault();
+        window.location.href = '<%= restorans_item_path(id: 'baba-franya') %>';
+      });
+
+      $barbaris.click(function(e){
+        e.preventDefault();
+        window.location.href = '<%= restorans_item_path(id: 'barbarus') %>';
+      });
+
+    });
+  </script>
 </section>
 
 <section id="index-recommended-week">
