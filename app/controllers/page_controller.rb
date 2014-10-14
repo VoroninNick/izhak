@@ -9,6 +9,7 @@ class PageController < ApplicationController
 
   def restorans_item
     @restoran = Restoran.find_by_slug!(params[:id])
+    @total = Product.where(category_id: @restoran.categories).count
     add_breadcrumb "<span>//</span> #{@restoran.name}".html_safe
   end
 

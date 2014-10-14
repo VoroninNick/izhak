@@ -8,7 +8,7 @@ class Product < ActiveRecord::Base
   before_validation :friendly_url
 
   validates :name, presence: true
-  validates :slug, presence: true, uniqueness: true
+  validates :slug, uniqueness: true
   validates :price, presence: true
   validates :description, presence: true
   validates :point, presence: true
@@ -32,7 +32,7 @@ class Product < ActiveRecord::Base
   end
 
   def friendly_url
-    self.slug = name.parameterize
+    self.slug = [category_id, price, name.parameterize].join("-")
   end
 
 end

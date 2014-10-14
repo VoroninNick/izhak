@@ -13,11 +13,11 @@ $brand-bruno: #6B3F22;
     .restoran-menu{
       ul{
         border: 1px solid $brand-barbaris !important;
-        li{
+        button{
           border-bottom: 1px solid $brand-barbaris !important;
-          a{
+          //button{
             color: $brand-barbaris !important;
-          }
+          //}
         }
       }
     }
@@ -37,11 +37,11 @@ $brand-bruno: #6B3F22;
     .restoran-menu{
       ul{
         border: 1px solid $brand-bruno !important;
-        li{
+        button{
           border-bottom: 1px solid $brand-bruno !important;
-          a{
+          //button{
             color: $brand-bruno !important;
-          }
+          //}
         }
       }
     }
@@ -61,11 +61,11 @@ $brand-bruno: #6B3F22;
     .restoran-menu{
       ul{
         border: 1px solid $brand-baba !important;
-        li{
+        button{
           border-bottom: 1px solid $brand-baba !important;
-          a{
+          //button{
             color: $brand-baba !important;
-          }
+          //}
         }
       }
     }
@@ -137,12 +137,23 @@ $brand-bruno: #6B3F22;
               color: #ffffff !important;
             }
           }
-          li{
+          button{
+            width: 100%;
             padding: 16px 12px;
             background: url("pattern-white-15.png") repeat 0 0;
             background-color: #ffffff;
             border-bottom: 1px solid $brand-barbaris;
             font-family: "Lobster", cursive;
+            display: list-item;
+            text-align: -webkit-match-parent;
+
+            //button{
+              -webkit-appearance: none;
+              cursor: pointer;
+              //background: transparent;
+              font-size: 22px;
+              color: $brand-barbaris;
+            //}
 
             sup{
               font-size: 12px;
@@ -153,7 +164,7 @@ $brand-bruno: #6B3F22;
             }
 
             &:first-child{
-
+              //background: url("Yizhaku-pattern-orange-15%25.jpg") repeat 0 0;
             }
 
             &:last-child{
@@ -221,6 +232,8 @@ $brand-bruno: #6B3F22;
           margin-left: 1%;
           margin-right: 1%;
           margin-bottom: 2%;
+
+          display: none;
           //overflow: hidden;
 
           //position: relative;
@@ -312,7 +325,7 @@ $brand-bruno: #6B3F22;
                 left: 0;
                 right: 0;
                 height: 55px;
-                background: url("Yizhaku-pattern-orange-15%25.jpg") repeat $brand-orange;
+                background:  $brand-orange;
                 line-height: 55px;
                 opacity: 0;
                 z-index: -100;
@@ -424,7 +437,7 @@ $brand-bruno: #6B3F22;
           .product_item{
             @include set_grid_6;
 
-            
+
             &:nth-child(2n){
               margin-right: 0;
             }

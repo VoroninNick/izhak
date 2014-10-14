@@ -15,6 +15,11 @@ GIT
   specs:
     mercury (2.0.0)
 
+GIT
+  remote: git://github.com/vikewoods/jquery-ujs.git
+  revision: c1fcef5baa2e854d5c47267f4be57a6c1ce86822
+  specs:
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -301,7 +306,7 @@ DEPENDENCIES
   globalize-accessors
   haml
   jbuilder (~> 2.0)
-  jquery-rails
+  jquery-rails!
   jquery-turbolinks
   lograge
   logstash-event

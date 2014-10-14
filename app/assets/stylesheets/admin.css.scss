@@ -146,6 +146,11 @@
 
   form, #new_restoran, .edit_restoran {
 
+    .hidden{
+      display: none;
+      visibility: hidden;
+    }
+
     input.disabled{
       background: #ebebeb !important;
     }

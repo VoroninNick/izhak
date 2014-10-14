@@ -65,4 +65,19 @@ $(document).ready(function(e){
     //};
 
 
+
+    //$(".restoran-menu ul li button").click(function(){
+    //    if($(".restoran-menu ul li button").hasClass('active')){
+    //        $(".restoran-menu ul li").addClass('current');
+    //    }else{
+    //        $(".restoran-menu ul li").removeClass('current');
+    //    }
+    //});
+
+
 });
+
+
+function showAlertNew(){
+    swal("Категорія їжі була успішно добавлена!");
+}

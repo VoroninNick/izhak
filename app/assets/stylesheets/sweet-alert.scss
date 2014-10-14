@@ -67,10 +67,10 @@
 	}
 
 	button {
-		$btnBlue: #AEDEF4;
+		$btnBlue: #FF661B;
 		$btnGray: #D0D0D0;
 
-		background-color: $btnBlue;
+		background-color: $btnBlue !important;
 		color: white;
 		border: none;
 		box-shadow: none;
