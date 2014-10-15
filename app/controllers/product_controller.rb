@@ -7,7 +7,7 @@ class ProductController < ApplicationController
 
   def index
     add_breadcrumb "Їжа", :my_product_index_path
-    @products = Product.all
+    @products = Product.paginate(:page => params[:page], :per_page => 10)
   end
 
   def show

@@ -1,8 +1,4 @@
-
-
 <section id="restoran">
-
-
   <div id="restoran-container">
 
     <div id="restoran-row">
@@ -10,7 +6,9 @@
         <ul>
           <button class="filter" data-filter="all">Все меню <sup><span>(</span><%= @total %><span>)</span></sup></button>
           <%- @restoran.categories.each do |menu| %>
+            <% if menu.products.count > 0 %>
               <button class="filter" data-filter=".<%= menu.slug %>"><%= menu.name  %><%- if menu.products.count > 0 %> <sup><span>(</span><%= menu.products.count %><span>)</span></sup><% end -%></button>
+            <% end %>
           <% end -%>
         </ul>
         <div class="restoran-description">
@@ -37,7 +35,7 @@
                   <div class="price_currency">
                     <span>грн</span>
                   </div>
-                  <h3><%= product.name %></h3>
+                  <h3><%= product.name.truncate(26, separator: ' ') %></h3>
                   <div class="hidden-block">
                     <p><%= product.description %></p>
                   </div>
@@ -45,7 +43,6 @@
                     <input type="text" class="quantity" />
                     <a class="order-main-btn" href="#">ЗАМОВИТИ</a>
                   </div>
-
                 </div>
 
               </div>
@@ -53,12 +50,38 @@
           <% end %>
         <% end -%>
 
-
+      <div id="res-shadow"></div>
       </div>
+      <div class="group pager-list"></div>
 
       <script type="text/javascript" charset="utf-8">
         $(function(){
-          $('.restoran-products').mixItUp();
+          $('.restoran-products').mixItUp({
+            selectors: {
+              target: '.product_item',
+              filter: '.filter',
+              sort: '.sort',
+              pagersWrapper: '.pager-list'
+            },
+            load: {
+              page: 1
+            },
+            pagination: {
+              limit: 16,
+              loop: false,
+              generatePagers: true,
+              maxPagers: false
+
+            },
+            animation: {
+              duration: 400,
+              effects: 'fade scale(0.15) stagger(20ms) translateZ(-90px) translateY(-20%) rotateX(20deg)',
+              easing: 'cubic-bezier(0.645, 0.045, 0.355, 1)'
+            },
+            controls: {
+              activeClass: 'current'
+            }
+          });
         });
       </script>
     </div>

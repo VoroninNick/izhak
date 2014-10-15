@@ -1,7 +1,7 @@
 <%= simple_form_for(@product, url: my_product_update_path) do |f| %>
   <%= f.error_notification %>
   <%= f.input :name, label: "Назва", input_html: {placeholder: 'Піца'}, hint: "Назва ресторан" %>
-  <%= f.input :slug, :disabled => true, label: "Силка", input_html: {placeholder: 'pizza'}, hint: "Силка для відображення url, генерується автоматично" %>
+  <%= f.input :slug, :disabled => true, label: "Силка", input_html: {placeholder: 'pizza'}, hint: "Силка для відображення url, генерується автоматично", as: :hidden %>
   <%= f.input :avatar, label: "Головне зображеня", as: :image_preview %>
   <%= f.input :price, label: "Ціна", input_html: {placeholder: '20,25'}, hint: "Ціна за одиницю товару" %>
   <%= f.input :description, label: "Опис", input_html: {placeholder: 'морква, бульба, цибуля'}, hint: "Компоненти страви" %>

@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.inview.min.js
 //= require ckeditor/init
 //= require_tree .
 
@@ -73,6 +74,14 @@ $(document).ready(function(e){
     //        $(".restoran-menu ul li").removeClass('current');
     //    }
     //});
+
+
+    $(window).scroll(function() {
+        //var url = $('.pagination .next_page').attr('href');
+        if ($(window).scrollTop() > $(document).height() - $(window).height() - 590) {
+            //swal("At the end!")
+        }
+    });
 
 
 });

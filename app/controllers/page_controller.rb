@@ -8,7 +8,13 @@ class PageController < ApplicationController
   end
 
   def restorans_item
-    @restoran = Restoran.find_by_slug!(params[:id])
+    @restoran = Restoran.find_by_slug!(params[:id]) #.paginate(page: params[:page], per_page: 16)
+    @menus = @restoran.categories
+    #@products = @menus.products.paginate(page: params[:page], per_page: 16)
+    logger.info "------------------------ START DEBUG RESTORAN ------------------------"
+    #logger.info @restoran.inspect
+    #logger.info @products.inspect
+    logger.info "------------------------ END   DEBUG RESTORAN ------------------------"
     @total = Product.where(category_id: @restoran.categories).count
     add_breadcrumb "<span>//</span> #{@restoran.name}".html_safe
   end

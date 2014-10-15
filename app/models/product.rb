@@ -1,3 +1,6 @@
+# coding: utf-8
+require 'unicode'
+
 class Product < ActiveRecord::Base
 
   attr_accessible :name, :slug, :price, :description, :point, :avatar, :category, :category_id, :category_attributes
@@ -6,12 +9,15 @@ class Product < ActiveRecord::Base
   belongs_to :category
 
   before_validation :friendly_url
+  before_save :normalize_name
+
+  default_scope { order('created_at DESC') }
 
   validates :name, presence: true
   validates :slug, uniqueness: true
   validates :price, presence: true
-  validates :description, presence: true
-  validates :point, presence: true
+  #validates :description, presence: true
+  #validates :point, presence: true
   #validates :avatar, presence: true
   #validates :category, presence: true
 
@@ -20,6 +26,7 @@ class Product < ActiveRecord::Base
                                thumb_pr: '120x120#',
                                main: '238x238#'
                            },
+                    default_url: "/assets/images/food/:style/missing.jpg",
                     url:'/assets/images/food/:class/:id/image_:style.:extension',
                     path:':rails_root/public:url'
 
@@ -32,7 +39,24 @@ class Product < ActiveRecord::Base
   end
 
   def friendly_url
-    self.slug = [category_id, price, name.parameterize].join("-")
+    self.slug = [(category.name).parameterize, (price.to_s).parameterize, name.parameterize].join("-")
+  end
+
+  def normalize_name
+    self.name = Unicode::capitalize(name)
+  end
+
+  def percent_of(n)
+    self.to_f / n.to_f * 10.0
+  end
+
+  def ceil2(exp = 0)
+    multiplier = 10 ** exp
+    ((self * multiplier).ceil).to_f/multiplier.to_f
+  end
+
+  def calculate_points
+    self.point = (percent_of(price)).round
   end
 
 end

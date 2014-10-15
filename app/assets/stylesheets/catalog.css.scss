@@ -86,7 +86,7 @@ $brand-bruno: #6B3F22;
 #restoran{
 
   padding-top: $padding-brand-top;
-  padding-bottom: $padding-brand-bottom;
+  padding-bottom: $padding-brand-top;
 
 
   #restoran-container{
@@ -133,9 +133,9 @@ $brand-bruno: #6B3F22;
             sup{
               color: #ffffff;
             }
-            a{
+            //a{
               color: #ffffff !important;
-            }
+            //}
           }
           button{
             width: 100%;
@@ -145,7 +145,8 @@ $brand-bruno: #6B3F22;
             border-bottom: 1px solid $brand-barbaris;
             font-family: "Lobster", cursive;
             display: list-item;
-            text-align: -webkit-match-parent;
+            //text-align: -webkit-match-parent;
+            text-align: left;
 
             //button{
               -webkit-appearance: none;
@@ -209,11 +210,28 @@ $brand-bruno: #6B3F22;
 
       }
 
+      #res-shadow{
+//        -moz-box-shadow: 0 -1px 80px 80px rgba(255,255,255,0.6);
+//        -webkit-box-shadow: 0 -1px 80px 80px rgba(255, 255, 255, 0.6);
+//        box-shadow: 0 -1px 80px 80px rgba(255, 255, 255, 0.6);
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 99999999;
+      }
+
       .restoran-products{
         @include set_grid;
         @include set_grid_9;
+        overflow: hidden;
 
 
+
+//        display: -webkit-flex;
+//        -webkit-flex-flow: row wrap;
+//        -webkit-justify-content: space-between;
+//        -webkit-align-content: flex-start;
 
 
         .first{
@@ -234,6 +252,8 @@ $brand-bruno: #6B3F22;
           margin-bottom: 2%;
 
           display: none;
+
+
           //overflow: hidden;
 
           //position: relative;
@@ -413,13 +433,16 @@ $brand-bruno: #6B3F22;
 
               h3{
                 margin: 0;
+                width: 160px;
                 padding-left: 10px;
                 position: absolute;
                 left: 0;
-                top: 14px;
+                top: 10px;
                 color: #ffffff;
                 font-family: "Lobster", cursive;
-                font-size: 20px;
+                font-weight: 200;
+                font-size: 18px;
+                line-height: 16px;
 
               }
             }

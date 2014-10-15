@@ -1,6 +1,9 @@
+require 'unicode'
+
 class Category < ActiveRecord::Base
   attr_accessible :name, :slug, :restoran, :restoran_id
   before_validation :friendly_url
+  before_save :normalize_name
 
   belongs_to :restoran
   has_many :products
@@ -11,7 +14,7 @@ class Category < ActiveRecord::Base
   validates :slug, uniqueness: true
   validates :restoran, presence: true
 
-
+  default_scope { order('created_at ASC') }
 
 
   def to_param
@@ -20,6 +23,10 @@ class Category < ActiveRecord::Base
 
   def friendly_url
     self.slug = [restoran_id, name.parameterize].join("-")
+  end
+
+  def normalize_name
+    self.name = Unicode::capitalize(name)
   end
 
 
