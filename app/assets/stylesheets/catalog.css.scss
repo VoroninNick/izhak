@@ -210,21 +210,14 @@ $brand-bruno: #6B3F22;
 
       }
 
-      #res-shadow{
-//        -moz-box-shadow: 0 -1px 80px 80px rgba(255,255,255,0.6);
-//        -webkit-box-shadow: 0 -1px 80px 80px rgba(255, 255, 255, 0.6);
-//        box-shadow: 0 -1px 80px 80px rgba(255, 255, 255, 0.6);
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 99999999;
-      }
-
       .restoran-products{
         @include set_grid;
         @include set_grid_9;
-        overflow: hidden;
+        //overflow: hidden;
+
+        .pager-list{
+
+        }
 
 
 

@@ -12,6 +12,7 @@ class Product < ActiveRecord::Base
   before_save :normalize_name
 
   default_scope { order('created_at DESC') }
+  scope :asc, -> { order('created_at ASC') }
 
   validates :name, presence: true
   validates :slug, uniqueness: true

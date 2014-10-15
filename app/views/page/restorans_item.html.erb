@@ -1,13 +1,15 @@
+<%= params[:hash] %>
+
 <section id="restoran">
   <div id="restoran-container">
 
     <div id="restoran-row">
       <div class="restoran-menu">
         <ul>
-          <button class="filter" data-filter="all">Все меню <sup><span>(</span><%= @total %><span>)</span></sup></button>
+          <button class="filter" data-filter="all" data-hash="all">Все меню <sup><span>(</span><%= @total %><span>)</span></sup></button>
           <%- @restoran.categories.each do |menu| %>
             <% if menu.products.count > 0 %>
-              <button class="filter" data-filter=".<%= menu.slug %>"><%= menu.name  %><%- if menu.products.count > 0 %> <sup><span>(</span><%= menu.products.count %><span>)</span></sup><% end -%></button>
+              <button class="filter" data-filter=".<%= menu.slug %>" data-hash="<%= menu.slug %>"><%= menu.name  %><%- if menu.products.count > 0 %> <sup><span>(</span><%= menu.products.count %><span>)</span></sup><% end -%></button>
             <% end %>
           <% end -%>
         </ul>
@@ -22,9 +24,9 @@
 
       <div class="restoran-products">
 
-        <%- @restoran.categories.each do |menu_product| %>
-          <% menu_product.products.each do |product| %>
-            <div class="product_item <%= cycle('first', '', '', 'last') %> <%= menu_product.slug %> all">
+        <%#- @restoran.categories.each do |menu_product| %>
+          <%- @products.each do |product| %>
+            <div class="product_item <%= cycle('first', '', '', 'last') %> <%= product.category.slug %> all">
               <%#= product.inspect %>
               <div class="wrapp-me">
                 <div class="img-hol">
@@ -47,12 +49,14 @@
 
               </div>
             </div>
-          <% end %>
-        <% end -%>
+          <% end -%>
+        <%# end -%>
 
-      <div id="res-shadow"></div>
+        <div class="group pager-list">
+
+        </div>
       </div>
-      <div class="group pager-list"></div>
+
 
       <script type="text/javascript" charset="utf-8">
         $(function(){
@@ -71,7 +75,6 @@
               loop: false,
               generatePagers: true,
               maxPagers: false
-
             },
             animation: {
               duration: 400,
@@ -82,6 +85,18 @@
               activeClass: 'current'
             }
           });
+
+          var $menu_buttons_container = $(".restoran-menu ul button");
+          var $hashuri = location.hash;
+
+          $menu_buttons_container.on('click', function(){
+            //alert( $(this).attr('data-hash') );
+            location.hash = $(this).attr('data-hash');
+          });
+
+          if(location.hash.length>0 && document.referrer.length == 0){
+            //$('.restoran-products').mixItUp('filter', '.'+location.hash+'');
+          }
         });
       </script>
     </div>
