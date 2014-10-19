@@ -1,4 +1,4 @@
-<%= params[:hash] %>
+<%#= #Browser.inspect %>
 
 <section id="restoran">
   <div id="restoran-container">
@@ -25,6 +25,7 @@
       <div class="restoran-products">
 
         <%#- @restoran.categories.each do |menu_product| %>
+        <% cache do %>
           <%- @products.each do |product| %>
             <div class="product_item <%= cycle('first', '', '', 'last') %> <%= product.category.slug %> all">
               <%#= product.inspect %>
@@ -50,7 +51,7 @@
               </div>
             </div>
           <% end -%>
-        <%# end -%>
+        <% end %>
 
         <div class="group pager-list">
 

@@ -3,7 +3,7 @@ require 'unicode'
 
 class Product < ActiveRecord::Base
 
-  attr_accessible :name, :slug, :price, :description, :point, :avatar, :category, :category_id, :category_attributes
+  attr_accessible :name, :slug, :price, :description, :point, :avatar, :category, :category_id, :category_attributes, :unit
 
   has_and_belongs_to_many :orders, join_table: 'product_orders'
   belongs_to :category

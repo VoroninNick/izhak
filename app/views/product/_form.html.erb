@@ -4,6 +4,7 @@
   <%= f.input :slug, :disabled => true, label: "Силка", input_html: {placeholder: 'pizza'}, hint: "Силка для відображення url, генерується автоматично", as: :hidden %>
   <%= f.input :avatar, label: "Головне зображеня", as: :image_preview %>
   <%= f.input :price, label: "Ціна", input_html: {placeholder: '20,25'}, hint: "Ціна за одиницю товару" %>
+  <%= f.input :unit, label: "Одиниця виміру", input_html: { placeholder: '20 гр' }, hint: '' %>
   <%= f.input :description, label: "Опис", input_html: {placeholder: 'морква, бульба, цибуля'}, hint: "Компоненти страви" %>
   <%= f.input :point, label: "Бали", input_html: {placeholder: '10'}, hint: "Бали за 1 куплену одиницю товару" %>
   <%= f.association :category, :label_method => lambda { |category| "#{category.restoran.name} > #{category.name}" } %>

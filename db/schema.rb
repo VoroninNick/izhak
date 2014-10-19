@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141011203423) do
+ActiveRecord::Schema.define(version: 20141017153525) do
 
   create_table "badges_sashes", force: true do |t|
     t.integer  "badge_id"
@@ -125,6 +125,7 @@ ActiveRecord::Schema.define(version: 20141011203423) do
     t.string   "avatar_content_type"
     t.datetime "avatar_updated_at"
     t.integer  "category_id"
+    t.string   "unit"
   end
 
   add_index "products", ["slug"], name: "index_products_on_slug"

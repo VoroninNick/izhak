@@ -40,6 +40,8 @@ gem 'omniauth-facebook'
 #gem 'client_side_validations'
 gem 'simple_form_fancy_uploads'
 gem 'unicode'
+gem 'browser'
+gem 'capistrano'
 #gem 'mobile_fu', github: 'vikewoods/mobile-fu'
 group :development do
   gem 'sunspot_solr'
