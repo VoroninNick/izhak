@@ -1,19 +1,22 @@
 class ProductController < ApplicationController
+  # Before user tried to access controller check auth
   before_action :authenticate_user!
+  # If user has admin roles
   before_action :get_admin
+  # Set product method
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-
+  # Add default breadcrumb
   add_breadcrumb "<span>//</span> Особистий кабінет".html_safe, :my_index_path
 
+  # Index page
+  # /my/dashboard/products
   def index
     add_breadcrumb "Їжа", :my_product_index_path
     @products = Product.paginate(:page => params[:page], :per_page => 10)
   end
 
-  def show
-    add_breadcrumb "Їжа", :my_product_index_path
-  end
-
+  # New product page
+  # /my/dashboard/products/new
   def new
     add_breadcrumb "Їжа", :my_product_index_path
     add_breadcrumb "Новий"

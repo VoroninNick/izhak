@@ -1,6 +1,5 @@
-
-
 <section id="index-banner">
+
 </section>
 <section id="index-restorans">
   <div class="restorans-container">
@@ -56,7 +55,29 @@
 </section>
 
 <section id="index-recommended-week">
-  <h1>Пропизиція тижня</h1>
+  <h2>Пропизиція тижня</h2>
+
+
+  <div id="recommended-week-container">
+    <div class="recommended-week-row">
+
+      <% @recommended.each_with_index  do |recommend, index| %>
+
+      <div class="recommended-item">
+
+        <div class="recommended-wrapper" data-product-id="<%= recommend.id %>" data-product-slug="<%= recommend.slug %>" data-product-index="<%= index %>">
+
+        </div>
+
+        <%= recommend.inspect %>
+
+      </div>
+
+      <% end %>
+    </div>
+  </div>
+
+
 </section>
 
 

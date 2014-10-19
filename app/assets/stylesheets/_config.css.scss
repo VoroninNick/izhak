@@ -8,6 +8,66 @@ $padding-brand-top: 80px;
 $padding-brand-bottom: 280px;
 
 
+@mixin brand-borders-h($border-color){
+
+  &:after,
+  &:before{
+    -webkit-transition: width 300ms ease-in-out;
+    -moz-transition: width 300ms ease-in-out;
+    -o-transition: width 300ms ease-in-out;
+    transition: width 300ms ease-in-out;
+    border-top: 1px solid $border-color;
+    content: "";
+    position: absolute;
+    height: 1px;
+  }
+
+  &:after{
+    top: 20px;
+    width: 40%;
+    right: 0;
+    @media (max-width: 720px) {
+      width: 10%;
+    }
+    @media (min-width: 720px) and (max-width: 940px) {
+      width: 15%;
+    }
+    @media (min-width: 940px) and (max-width: 1290px) {
+      width: 25%;
+    }
+    @media (min-width: 1290px) and (max-width: 1620px) {
+      width: 30%;
+    }
+    @media (min-width: 1620px) and (max-width: 1920px) {
+      width: 40%;
+    }
+  }
+
+  &:before{
+    top: 20px;
+    width: 40%;
+    left: 0;
+    @media (max-width: 720px) {
+      width: 10%;
+    }
+    @media (min-width: 720px) and (max-width: 940px) {
+      width: 15%;
+    }
+    @media (min-width: 940px) and (max-width: 1290px) {
+      width: 25%;
+    }
+    @media (min-width: 1290px) and (max-width: 1620px) {
+      width: 30%;
+    }
+    @media (min-width: 1620px) and (max-width: 1920px) {
+      width: 40%;
+    }
+  }
+
+
+}
+
+
 @mixin fira(){
   font-family: "Fira Sans", sans-serif;
   font-weight: 400;

@@ -323,5 +323,13 @@ footer{
 
 
 #index-recommended-week{
+  h2{
+    font-family: "Lobster", cursive;
+    color: $brand-orange;
+    font-size: 32px;
+    text-align: center;
+    position: relative;
 
+    @include brand-borders-h(rgba(188, 190, 192, 1));
+  }
 }
