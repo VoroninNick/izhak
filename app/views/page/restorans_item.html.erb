@@ -84,6 +84,24 @@
             },
             controls: {
               activeClass: 'current'
+            },
+            callbacks: {
+              onMixLoad: function(){
+                console.log("Mix it up animation: Load");
+              },
+              onMixStart: function(){
+                console.log("Mix it up animation: Start");
+              },
+              onMixBusy: function(){
+                console.log("Mix it up animation: Busy");
+              },
+              onMixEnd: function(){
+                console.log("Mix it up animation: End");
+              },
+              onMixFail: function(){
+                console.log("Mix it up animation: Fail");
+              },
+              _user: false
             }
           });
 

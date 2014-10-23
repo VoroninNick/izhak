@@ -25,8 +25,17 @@ class Product < ActiveRecord::Base
   has_attached_file :avatar, styles:{
                                thumb: '60x60#',
                                thumb_pr: '120x120#',
-                               main: '238x238#'
+                               main: '238x238#',
+                               main_big: '682x320#',
+                               main_big_square: '1024x820#'
                            },
+                    convert_options:{
+                        thumb: '-quality 80 -interlace Plane',
+                        thumb_pr: '-quality 80 -interlace Plane',
+                        main: '-quality 80 -interlace Plane',
+                        main_big: '-quality 80 -interlace Plane',
+                        main_big_square: '-quality 80 -interlace Plane'
+                    },
                     default_url: "/assets/images/food/:style/missing.jpg",
                     url:'/assets/images/food/:class/:id/image_:style.:extension',
                     path:':rails_root/public:url'
@@ -37,6 +46,11 @@ class Product < ActiveRecord::Base
 
   def to_param
     slug
+  end
+
+  def image_slug
+    return name.parameterize if name
+    "unknown"
   end
 
   def friendly_url

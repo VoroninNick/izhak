@@ -61,15 +61,44 @@
   <div id="recommended-week-container">
     <div class="recommended-week-row">
 
+
+
       <% @recommended.each_with_index  do |recommend, index| %>
 
-      <div class="recommended-item">
+      <div class="recommended-item <%= cycle('first', 'last') %>">
+
+
 
         <div class="recommended-wrapper" data-product-id="<%= recommend.id %>" data-product-slug="<%= recommend.slug %>" data-product-index="<%= index %>">
+          <div class="product_item  <%= recommend.category.slug %> all">
+            <%#= product.inspect %>
+            <div class="wrapp-me">
+              <div class="img-hol">
+                <%= image_tag(recommend.avatar.url(:main_big_square)) %>
+              </div>
+              <div class="descr">
+                <div class="price_tag">
+                  <p><%= recommend.price.round %></p>
+                  <div class="price_currency">
+                    <span>грн</span>
+                  </div>
+                </div>
 
+                <h3><%= recommend.name.truncate(26, separator: ' ') %></h3>
+                <div class="hidden-block">
+                  <p><%= recommend.description %></p>
+                </div>
+                <div class="brand-btn-holder">
+                  <input type="text" class="quantity" />
+                  <a class="order-main-btn" href="#">ЗАМОВИТИ</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
         </div>
 
-        <%= recommend.inspect %>
+        <%#= recommend.inspect %>
 
       </div>
 
@@ -81,3 +110,50 @@
 </section>
 
 
+<section id="index-launch-week">
+  <h2>Бізнес-ланч</h2>
+  <div class="launch-container">
+    <div class="launch-row">
+      <div id="launch-slider">
+
+        <% Product.first(2).each do |launch| %>
+
+          <div class="launch-item">
+
+
+            <div class="launch-wrapper">
+              <div class="product_item  <%= launch.category.slug %> all">
+                <%#= product.inspect %>
+                <div class="wrapp-me">
+                  <div class="img-hol">
+                    <%= image_tag(launch.avatar.url(:main_big_square)) %>
+                  </div>
+                  <div class="descr">
+                    <div class="price_tag">
+                      <p><%= launch.price.round %></p>
+                      <div class="price_currency">
+                        <span>грн</span>
+                      </div>
+                    </div>
+
+                    <h3><%= launch.name.truncate(26, separator: ' ') %></h3>
+                    <div class="hidden-block">
+                      <p><%= launch.description %></p>
+                    </div>
+                    <div class="brand-btn-holder">
+                      <input type="text" class="quantity" />
+                      <a class="order-main-btn" href="#">ЗАМОВИТИ</a>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

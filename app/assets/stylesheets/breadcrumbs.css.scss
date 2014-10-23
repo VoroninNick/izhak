@@ -43,3 +43,24 @@
     }
   }
 }
+
+
+
+.pager-list{
+
+  width: 100%;
+  padding: 20px 0;
+
+
+
+  .pager{
+    margin: 0px 6px;
+    font-family: "Lobster", cursive;
+    color: $brand-orange;
+    font-size: 24px;
+  }
+
+  .current{
+    color: $brand-darkblue;
+  }
+}

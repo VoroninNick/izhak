@@ -1,7 +1,7 @@
 class PageController < ApplicationController
 
   def index
-    @recommended = Product.last(6)
+    @recommended = Product.last(4)
   end
 
   def restorans

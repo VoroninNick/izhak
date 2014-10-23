@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.1.4'
+gem 'acts_as_shopping_cart', '~> 0.2.1'
 gem 'sqlite3'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
@@ -13,6 +14,7 @@ gem 'haml'
 gem 'nokogiri'
 gem 'execjs'
 gem 'paperclip'
+gem 'paperclip-compression' #,"~> 0.1.1"
 gem 'ckeditor'
 gem 'rails-i18n'
 gem 'russian'
@@ -46,6 +48,6 @@ gem 'capistrano'
 group :development do
   gem 'sunspot_solr'
 end
-gem 'newrelic_rpm'
+#gem 'newrelic_rpm'
 
 

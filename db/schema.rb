@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141017153525) do
+ActiveRecord::Schema.define(version: 20141023131917) do
 
   create_table "badges_sashes", force: true do |t|
     t.integer  "badge_id"
@@ -145,6 +145,11 @@ ActiveRecord::Schema.define(version: 20141017153525) do
   add_index "restorans", ["slug"], name: "index_restorans_on_slug"
 
   create_table "sashes", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "shopping_carts", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end

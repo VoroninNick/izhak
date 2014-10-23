@@ -8,6 +8,81 @@ $padding-brand-top: 80px;
 $padding-brand-bottom: 280px;
 
 
+$brand-barbaris: #BBB21E;
+$brand-baba: #00948F;
+$brand-bruno: #6B3F22;
+
+#barbarus-restoran{
+  #restoran-row{
+    .restoran-menu{
+      ul{
+        border: 1px solid $brand-barbaris !important;
+        button{
+          border-bottom: 1px solid $brand-barbaris !important;
+          //button{
+          color: $brand-barbaris !important;
+          //}
+        }
+      }
+    }
+    .restoran-products{
+      .wrapp-me{
+        background: $brand-barbaris !important;
+        .descr{
+          background: $brand-barbaris !important;
+        }
+      }
+    }
+  }
+}
+#bruno-restoran{
+  #restoran-row{
+    .restoran-menu{
+      ul{
+        border: 1px solid $brand-bruno !important;
+        button{
+          border-bottom: 1px solid $brand-bruno !important;
+          //button{
+          color: $brand-bruno !important;
+          //}
+        }
+      }
+    }
+    .restoran-products{
+      .wrapp-me{
+        background: $brand-bruno !important;
+        .descr{
+          background: $brand-bruno !important;
+        }
+      }
+    }
+  }
+}
+#baba-franya-restoran{
+  #restoran-row{
+    .restoran-menu{
+      ul{
+        border: 1px solid $brand-baba !important;
+        button{
+          border-bottom: 1px solid $brand-baba !important;
+          //button{
+          color: $brand-baba !important;
+          //}
+        }
+      }
+    }
+    .restoran-products{
+      .wrapp-me{
+        background: $brand-baba !important;
+        .descr{
+          background: $brand-baba !important;
+        }
+      }
+    }
+  }
+}
+
+
 @mixin brand-borders-h($border-color){
 
   &:after,
@@ -26,7 +101,10 @@ $padding-brand-bottom: 280px;
     top: 20px;
     width: 40%;
     right: 0;
-    @media (max-width: 720px) {
+    @media (min-width: 320px) {
+      width: 0;
+    }
+    @media (min-width: 320px) and (max-width: 720px) {
       width: 10%;
     }
     @media (min-width: 720px) and (max-width: 940px) {
@@ -47,7 +125,10 @@ $padding-brand-bottom: 280px;
     top: 20px;
     width: 40%;
     left: 0;
-    @media (max-width: 720px) {
+    @media (min-width: 320px) {
+      width: 0;
+    }
+    @media (min-width: 320px) and (max-width: 720px) {
       width: 10%;
     }
     @media (min-width: 720px) and (max-width: 940px) {

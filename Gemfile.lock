@@ -27,6 +27,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    acts_as_shopping_cart (0.2.2)
+      activerecord (~> 4)
     ambry (0.3.1)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
@@ -114,7 +116,6 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.1)
-    newrelic_rpm (3.9.5.251)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
     nprogress-rails (0.1.6.3)
@@ -143,6 +144,7 @@ GEM
       omniauth-oauth (~> 1.0)
     options (2.3.2)
     orm_adapter (0.5.0)
+    os (0.9.6)
     paper_trail (3.0.6)
       activerecord (>= 3.0, < 5.0)
       activesupport (>= 3.0, < 5.0)
@@ -151,6 +153,10 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    paperclip-compression (0.3.6)
+      os (~> 0.9.6)
+      paperclip (>= 3.3)
+      ruby-imagespec (~> 0.3.1)
     polyglot (0.3.5)
     pr_geohash (1.0.0)
     progress_bar (1.0.3)
@@ -188,6 +194,7 @@ GEM
       railties (>= 3.2, < 4.2)
     rsolr (1.0.10)
       builder (>= 2.1.2)
+    ruby-imagespec (0.3.1)
     russian (0.6.0)
       i18n (>= 0.5.0)
     sass (3.2.19)
@@ -249,6 +256,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_shopping_cart (~> 0.2.1)
   better_errors
   binding_of_caller
   breadcrumbs_on_rails
@@ -266,7 +274,6 @@ DEPENDENCIES
   logstash-event
   mail_form
   merit
-  newrelic_rpm
   nokogiri
   nprogress-rails
   omniauth
@@ -274,6 +281,7 @@ DEPENDENCIES
   omniauth-twitter
   paper_trail
   paperclip
+  paperclip-compression
   progress_bar
   protected_attributes
   quiet_assets
