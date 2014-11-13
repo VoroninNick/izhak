@@ -1,7 +1,8 @@
 class PageController < ApplicationController
 
   def index
-    @recommended = Product.last(4)
+    @recommended ||= Product.last(4)
+    @current_day = DateTime.now.wday
   end
 
   def restorans

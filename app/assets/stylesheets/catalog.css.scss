@@ -1,66 +1,52 @@
 @import "grid";
 @import "config";
 
-
-
-
-
-
-#restoran{
+#restoran {
 
   padding-top: $padding-brand-top;
   padding-bottom: $padding-brand-top;
 
-
-  #restoran-container{
+  #restoran-container {
     @include set_container;
-    #restoran-row{
+    #restoran-row {
       @include set_row;
-
-      .restoran-menu{
+      .restoran-menu {
         @include set_grid;
         @include set_grid_3;
 
-
-
-
         @media (max-width: 720px) {
-          //display: none;
           width: 98% !important;
           height: 61px;
           margin: 0 1% !important;
 
-          ul{
-            li{
+          ul {
+            li {
               display: none;
             }
           }
 
-          .current{
+          .current {
             display: block;
           }
-
         }
 
         @media (min-width: 720px) and (max-width: 960px) {
           @include set_grid_4;
         }
 
-        ul{
+        ul {
           list-style: none;
           padding: 0;
           margin: 0;
           border: 1px solid $brand-barbaris;
-          .current{
+          .current {
             background: url("Yizhaku-pattern-orange-15%25.jpg") repeat 0 0;
-            sup{
+            sup {
               color: #ffffff;
             }
-            //a{
-              color: #ffffff !important;
-            //}
+            color: #ffffff !important;
           }
-          button{
+          button {
             width: 100%;
             padding: 16px 12px;
             background: url("pattern-white-15.png") repeat 0 0;
@@ -68,34 +54,30 @@
             border-bottom: 1px solid $brand-barbaris;
             font-family: "Lobster", cursive;
             display: list-item;
-            //text-align: -webkit-match-parent;
             text-align: left;
 
-            //button{
-              -webkit-appearance: none;
-              cursor: pointer;
-              //background: transparent;
-              font-size: 22px;
-              color: $brand-barbaris;
-            //}
+            -webkit-appearance: none;
+            cursor: pointer;
+            font-size: 22px;
+            color: $brand-barbaris;
 
-            sup{
+            sup {
               font-size: 12px;
               top: -0.95em;
-              span{
+              span {
                 color: $brand-error;
               }
             }
 
-            &:first-child{
+            &:first-child {
               //background: url("Yizhaku-pattern-orange-15%25.jpg") repeat 0 0;
             }
 
-            &:last-child{
+            &:last-child {
               border-bottom: 0 !important;
             }
 
-            a{
+            a {
               font-size: 22px;
               color: $brand-barbaris;
 
@@ -103,28 +85,28 @@
           }
         }
 
-        .restoran-description{
-          h3{
+        .restoran-description {
+          h3 {
             color: $brand-bruno;
             @include fira;
             font-weight: 500;
             font-size: 26px;
           }
 
-          img{
+          img {
             width: 100%;
             max-width: 100%;
             margin: 10px 0;
           }
 
-          p{
+          p {
             color: #6D6E71;
             @include fira;
             font-size: 18px;
           }
 
           .address,
-          .phone{
+          .phone {
             color: $brand-bruno;
             @include fira;
           }
@@ -133,42 +115,23 @@
 
       }
 
-      .restoran-products{
+      .restoran-products {
         @include set_grid;
         @include set_grid_9;
-        //overflow: hidden;
 
-        .pager-list{
+        .pager-list {
 
         }
 
-
-
-//        display: -webkit-flex;
-//        -webkit-flex-flow: row wrap;
-//        -webkit-justify-content: space-between;
-//        -webkit-align-content: flex-start;
-
-
-
-
-
-
-
         @media (max-width: 720px) {
-          //display: none;
           width: 98% !important;
           margin: 0 1% !important;
-
-          .product_item{
+          .product_item {
             @include set_grid_6;
-
-
-            &:nth-child(2n){
+            &:nth-child(2n) {
               margin-right: 0;
             }
           }
-
         }
 
       }

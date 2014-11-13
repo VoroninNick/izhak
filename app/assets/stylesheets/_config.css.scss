@@ -116,7 +116,7 @@ $brand-bruno: #6B3F22;
     @media (min-width: 1290px) and (max-width: 1620px) {
       width: 30%;
     }
-    @media (min-width: 1620px) and (max-width: 1920px) {
+    @media (min-width: 1620px) and (max-width: 2560px) {
       width: 40%;
     }
   }
@@ -140,7 +140,7 @@ $brand-bruno: #6B3F22;
     @media (min-width: 1290px) and (max-width: 1620px) {
       width: 30%;
     }
-    @media (min-width: 1620px) and (max-width: 1920px) {
+    @media (min-width: 1620px) and (max-width: 2560px) {
       width: 40%;
     }
   }
@@ -188,6 +188,36 @@ html, body {
 #magic-wrapper {
   min-height: 100%;
   margin-bottom: -490px;
+  @media (max-width: 320px) {
+    margin-bottom: -1090px;
+  }
+  @media (min-width: 320px) and (max-width: 380px){
+    margin-bottom: -1090px;
+  }
+  @media (min-width: 380px) and (max-width: 480px){
+    margin-bottom: -1020px;
+  }
+  @media (min-width: 480px) and (max-width: 594px){
+    margin-bottom: -960px;
+  }
+  @media (min-width: 594px) and (max-width: 780px) {
+    margin-bottom: -880px;
+  }
+  @media (min-width: 780px) and (max-width: 870px) {
+    margin-bottom: -840px;
+  }
+  @media (min-width: 870px) and (max-width: 940px) {
+    margin-bottom: -590px;
+  }
+  @media (min-width: 940px) and (max-width: 1170px) {
+    margin-bottom: -560px;
+  }
+  @media (min-width: 1170px) and (max-width: 1368px) {
+    margin-bottom: -540px;
+  }
+  @media (min-width: 1368px) and (max-width: 1540px) {
+    margin-bottom: -510px;
+  }
 }
 #magic-wrapper:after {
   content: "";
@@ -195,6 +225,36 @@ html, body {
 }
 footer, #magic-wrapper:after {
   height: 490px;
+  @media (max-width: 320px) {
+    height: 1090px;
+  }
+  @media (min-width: 320px) and (max-width: 380px){
+    height: 1090px;
+  }
+  @media (min-width: 380px) and (max-width: 480px){
+    height: 1020px;
+  }
+  @media (min-width: 480px) and (max-width: 594px){
+    height: 960px;
+  }
+  @media (min-width: 594px) and (max-width: 780px) {
+    height: 880px;
+  }
+  @media (min-width: 780px) and (max-width: 872px) {
+    height: 840px;
+  }
+  @media (min-width: 872px) and (max-width: 940px) {
+    height: 590px;
+  }
+  @media (min-width: 940px) and (max-width: 1170px) {
+    height: 560px;
+  }
+  @media (min-width: 1170px) and (max-width: 1368px) {
+    height: 540px;
+  }
+  @media (min-width: 1368px) and (max-width: 1540px) {
+    height: 510px;
+  }
 }
 footer {
   background: url("Yizhaku-pattern-blue-15%25.jpg") repeat 0 0;

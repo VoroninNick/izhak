@@ -17,26 +17,10 @@
   <title>IzhakiShop</title>
   <link href='http://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="//code.cdn.mozilla.net/fonts/fira.css">
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
-  <script>
-    window.fbAsyncInit = function() {
-      FB.init({
-        appId      : '539826682828532',
-        xfbml      : true,
-        version    : 'v2.1'
-      });
-    };
 
-    (function(d, s, id){
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) {return;}
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/sdk.js";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-  </script>
 </head>
 <body class="" id="header" >
 <%#= request.path %>
@@ -82,14 +66,30 @@
 
 <footer>
   <div id="sup-footer-full">
+    <div class="sup-footer-full-container">
+      <div class="sup-footer-full-row">
+        <div class="sup-left">
+          <p>Хочете отримувати гарячі пропозиції?</p>
+        </div>
 
+        <div class="sup-right">
+          <form id="subscribe" action="">
+            <input type="text" placeholder="введіть свою електронну скриньку" />
+            <div class="subscribe-btn-bg">
+              <a class="subscribe-btn" href="#">Так!</a>
+              <span>точно</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
   <div id="footer-container">
     <div id="footer-row">
       <div class="footer-left-section">
         <h2>Хто ми?</h2>
         <p>Їжаки — це проект служби доставки їжі з різних закладів на всі смаки та забаганки. Ми доставляємо італійську кухню (піци, пасти, смачнющі соуси), європейську та українську кухню (перші та другі страви, стейки, вареники) та японську кухню (суші, супи, роли). </p>
-        <p><%= embedded_svg("bruno-logo-white.svg") %><%= embedded_svg("baba-frana-white.svg") %><%= embedded_svg("barbaris-white.svg") %></p>
+        <p><%= embedded_svg("bruno-logo-white.svg") %><%= embedded_svg("baba-frana-white.svg") %><%#= embedded_svg("barbaris-white.svg") %></p>
       </div>
       <div class="footer-center-section">
         <h2>Умови доставки і оплати</h2>
@@ -127,6 +127,22 @@
     </div>
   </div>
 </footer>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '539826682828532',
+      xfbml      : true,
+      version    : 'v2.1'
+    });
+  };
 
+  (function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
 </body>
 </html>

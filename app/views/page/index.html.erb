@@ -1,5 +1,43 @@
 <section id="index-banner">
+  <div id="banner-container">
+    <div class="banner-row">
+      <% Product.first(8).each do |launch| %>
+        <div class="banner-item">
+          <div class="banner-wrapper">
+            <div class="product_item  <%= launch.category.slug %> all">
+              <div class="wrapp-me">
+                <div class="img-hol">
+                  <%= image_tag(launch.avatar.url(:main_big_square)) %>
+                </div>
+                <div class="descr">
+                  <div class="price_tag">
+                    <p><%= launch.price.round %></p>
+                    <div class="price_currency">
+                      <span>грн</span>
+                    </div>
+                  </div>
 
+                  <h3><%= launch.name.truncate(26, separator: ' ') %></h3>
+                  <div class="hidden-block">
+                    <p><%= launch.description %></p>
+                  </div>
+                  <div class="brand-btn-holder">
+                    <input type="text" class="quantity" />
+                    <a class="order-main-btn" href="#">ЗАМОВИТИ</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <script type="text/javascript" charset="utf-8">
+      $(document).ready(function(e){
+
+      });
+    </script>
+  </div>
 </section>
 <section id="index-restorans">
   <div class="restorans-container">
@@ -89,7 +127,7 @@
                   <p><%= recommend.description %></p>
                 </div>
                 <div class="brand-btn-holder">
-                  <input type="text" class="quantity" />
+                  <input type="number" class="quantity" />
                   <a class="order-main-btn" href="#">ЗАМОВИТИ</a>
                 </div>
               </div>
@@ -113,17 +151,65 @@
 <section id="index-launch-week">
   <h2>Бізнес-ланч</h2>
   <div class="launch-container">
+    <script type="text/javascript" charset="utf-8">
+      $(document).ready(function(){
+//        $(".slider-controll ul").each(function () {
+//          $(".slider-controll ul li a").click(function(e){
+//            e.preventDefault();
+//
+//            if(!$(this).hasClass('active-day')){
+//              $(this).parent().addClass('active-day');
+//            }else{
+//              $(this).parent().removeClass('active-day');
+//            }
+//
+//
+//
+//            console.log($(this).data('param'));
+//          });
+//        });
+
+        $('#launch-slider').lightSlider({
+          item:2,
+          slideMove:1,
+          easing: 'cubic-bezier(0, 0.6, 1, 0.5)',
+          speed:600,
+          responsive : [
+            {
+              breakpoint:800,
+              settings: {
+                item:2,
+                slideMove:1,
+                slideMargin:6
+              }
+            },
+            {
+              breakpoint:480,
+              settings: {
+                item:1,
+                slideMove:1
+              }
+            }
+          ]
+        });
+      });
+    </script>
     <div class="launch-row">
+      <div class="slider-controll">
+        <ul>
+          <li <% if @current_day == 1 %> class="active-day" <% end %>><a href="" data-param="monday">Пн.</a></li>
+          <li <% if @current_day == 2 %> class="active-day" <% end %>><a href="" data-param="tuesday">Вт.</a></li>
+          <li <% if @current_day == 3 %> class="active-day" <% end %>><a href="" data-param="wednesday">Ср.</a></li>
+          <li <% if @current_day == 4 %> class="active-day" <% end %>><a href="" data-param="thursday">Чт.</a></li>
+          <li <% if @current_day == 5 %> class="active-day" <% end %>><a href="" data-param="friday">Пт.</a></li>
+        </ul>
+      </div>
+
       <div id="launch-slider">
-
-        <% Product.first(2).each do |launch| %>
-
+        <% Product.first(8).each do |launch| %>
           <div class="launch-item">
-
-
             <div class="launch-wrapper">
               <div class="product_item  <%= launch.category.slug %> all">
-                <%#= product.inspect %>
                 <div class="wrapp-me">
                   <div class="img-hol">
                     <%= image_tag(launch.avatar.url(:main_big_square)) %>
@@ -145,15 +231,125 @@
                       <a class="order-main-btn" href="#">ЗАМОВИТИ</a>
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>
-
-
           </div>
         <% end %>
       </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="index-how-we-do">
+  <h2>Як ми це робимо?</h2>
+  <div id="how-we-do-wrapper">
+    <div class="how-we-do-container">
+      <div class="how-we-do-row">
+        <div class="how-we-do-item">
+          <%= embedded_svg('how-we-do-section-1.svg') %>
+          <h4>Ви замовляєте</h4>
+          <p>На сайті або через оператора.</p>
+        </div>
+        <div class="how-we-do-item">
+          <%= embedded_svg('how-we-do-section-2.svg') %>
+          <h4 class="h4-red">Ми готуємо</h4>
+          <p>Швидко, смачно та зі свіжих продуктів.</p>
+        </div>
+        <div class="how-we-do-item">
+          <%= embedded_svg('how-we-do-section-3.svg') %>
+          <h4 class="h4-blue">Ми привозимо</h4>
+          <p>Швидко, по місту, в термосумках!</p>
+        </div>
+        <div class="how-we-do-item">
+          <%= embedded_svg('how-we-do-section-4.svg') %>
+          <h4 class="h4-green">Ви насолоджуєтесь</h4>
+          <p>Гарячою та смачною їжею від Їжаків!</p>
+        </div>
+      </div>
+      <div class="how-we-do-bottom-row">
+        <div class="how-we-do-bottom-item">
+          <h3><%= embedded_svg('how-we-do-bottom-1.svg') %> Доставка</h3>
+          <p>Доставка здійснюється нашим кур'єром протягом 30 хв після оформлення замовлення. Оплата здійснюється по місцю, після отримання замовлення.</p>
+        </div>
+        <div class="how-we-do-bottom-item">
+          <h3><%= embedded_svg('how-we-do-bottom-2.svg') %> Упаковка</h3>
+          <p>Упаковка оплачується окремо.Тратторія «Бруно» — 3 грн.Етно-паб «Баба Франя» — 4 грн.Бар-ресторан «Барбарис» — безкоштовно. </p>
+        </div>
+        <div class="how-we-do-bottom-item">
+          <h3><%= embedded_svg('how-we-do-bottom-3.svg') %> Бонуси</h3>
+          <p>Наш сервіс дає змогу використовувати накопичувальну систему балів. Отримані бали можна використати для отримання знижки при оформленні замовлення.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="index-customer-reply">
+  <h2>Добрі люди кажуть</h2>
+  <div id="customer-reply">
+    <div class="customer-reply-row">
+      <div class="customer-reply-item" id="customer-">
+        <a href="">
+          <%= image_tag("sabrina-carpenter-girl-meets-world.jpg") %>
+          <h4>Іван Піддубний</h4>
+        </a>
+      </div>
+      <div class="customer-reply-item" id="customer-">
+        <a href="">
+          <%= image_tag("sabrina-carpenter-girl-meets-world.jpg") %>
+          <h4>Іван Піддубний</h4>
+        </a>
+      </div>
+      <div class="customer-reply-item" id="customer-">
+        <a href="">
+          <%= image_tag("sabrina-carpenter-girl-meets-world.jpg") %>
+          <h4>Іван Піддубний</h4>
+        </a>
+      </div>
+      <div class="customer-reply-item" id="customer-">
+        <a href="">
+          <%= image_tag("sabrina-carpenter-girl-meets-world.jpg") %>
+          <h4>Іван Піддубний</h4>
+        </a>
+      </div>
+      <div class="customer-reply-item" id="customer-">
+        <a href="">
+          <%= image_tag("sabrina-carpenter-girl-meets-world.jpg") %>
+          <h4>Іван Піддубний</h4>
+        </a>
+      </div>
+      <div class="customer-reply-item" id="customer-">
+        <a href="">
+          <%= image_tag("sabrina-carpenter-girl-meets-world.jpg") %>
+          <h4>Іван Піддубний</h4>
+        </a>
+      </div>
+    </div>
+    <div class="customer-reply-content-row">
+      <p>“</p>
+      <div class="customer-reply-content-item" id="customer-answer-">
+        <div class="left-push">&nbsp;</div>
+        <div class="center-push">
+          <p>Спасибі за піцу! Спасибі за швидку доставку. Дуже смачно. Тісто помірно тонке, смачне. Начинка свіжа і досить багато))</p>
+        </div>
+        <div class="right-push">&nbsp;</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="index-customer-buy">
+  <h2>Добрі люди замовили</h2>
+  <div id="customer-buy">
+    <div class="customer-buy-container">
+      <div class="customer-buy-row">
+        <div class="customer-carusel">
+
+        </div>
+      </div>
+
     </div>
   </div>
 </section>

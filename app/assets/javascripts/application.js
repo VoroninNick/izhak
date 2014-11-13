@@ -87,11 +87,30 @@ $(document).ready(function(e){
 
 
 
+    //$(".recommended-item").bind('touchstart', function(e) {
+    //    if($('.recommended-item .recommended-wrapper .product_item').hasClass('active_mob')){
+    //        //alert('has!');
+    //        $('.recommended-item .recommended-wrapper .product_item').removeClass('active_mob');
+    //    }else{
+    //        //alert('no!');
+    //        $('.recommended-item .recommended-wrapper .product_item').addClass('active_mob');
+    //    }
+    //});
+
+    //$('.recommended-item').bind('touchstart', function(event){
+    //    event.stopPropagation(); //Make all touch events stop at the .filters ul.children container element
+    //    event.preventDefault();
+    //    if($('.recommended-item .recommended-wrapper .product_item').hasClass('rw-pi')){
+    //        $('.recommended-item .recommended-wrapper .product_item').removeClass('rw-pi');
+    //    }else{
+    //       $('.recommended-item .recommended-wrapper .product_item').addClass('rw-pi');
+    //    }
+    //});
+
+
+
 
 
 });
 
 
-function showAlertNew(){
-    swal("Категорія їжі була успішно добавлена!");
-}
